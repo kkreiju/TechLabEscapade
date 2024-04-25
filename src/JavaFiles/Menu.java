@@ -38,9 +38,25 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(LogoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, -1, -1));
 
         SaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/savebutton.png"))); // NOI18N
+        SaveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SaveButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                SaveButtonMouseExited(evt);
+            }
+        });
         getContentPane().add(SaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 630, -1, -1));
 
         PlayButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/playbutton.png"))); // NOI18N
+        PlayButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Menu.this.mouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                PlayButtonMouseExited(evt);
+            }
+        });
         getContentPane().add(PlayButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 470, 320, 150));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgroundmenu.png"))); // NOI18N
@@ -48,6 +64,22 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void mouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseEntered
+        PlayButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/playbuttonhovered.png")));
+    }//GEN-LAST:event_mouseEntered
+
+    private void PlayButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlayButtonMouseExited
+        PlayButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/playbutton.png")));
+    }//GEN-LAST:event_PlayButtonMouseExited
+
+    private void SaveButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveButtonMouseEntered
+        SaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/savebuttonhovered.png")));
+    }//GEN-LAST:event_SaveButtonMouseEntered
+
+    private void SaveButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveButtonMouseExited
+        SaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/savebutton.png")));
+    }//GEN-LAST:event_SaveButtonMouseExited
 
     /**
      * @param args the command line arguments

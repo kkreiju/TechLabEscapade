@@ -41,6 +41,7 @@ public class TermsOfUse extends javax.swing.JFrame {
         OKButton.setForeground(new java.awt.Color(0, 0, 0));
         OKButton.setText("OK");
         OKButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        OKButton.setEnabled(false);
         OKButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OKButtonActionPerformed(evt);
@@ -60,9 +61,9 @@ public class TermsOfUse extends javax.swing.JFrame {
         AgreeCheckBox.setForeground(new java.awt.Color(0, 0, 0));
         AgreeCheckBox.setText("I accept the terms of use top / policies on top");
         AgreeCheckBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        AgreeCheckBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgreeCheckBoxActionPerformed(evt);
+        AgreeCheckBox.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                AgreeCheckBoxStateChanged(evt);
             }
         });
 
@@ -116,9 +117,12 @@ public class TermsOfUse extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_OKButtonActionPerformed
 
-    private void AgreeCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgreeCheckBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AgreeCheckBoxActionPerformed
+    private void AgreeCheckBoxStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_AgreeCheckBoxStateChanged
+        if(AgreeCheckBox.isSelected())
+            OKButton.setEnabled(true);
+        else
+            OKButton.setEnabled(false);
+    }//GEN-LAST:event_AgreeCheckBoxStateChanged
 
     /**
      * @param args the command line arguments
