@@ -6,6 +6,8 @@
             <name>TechlabEscapade</name>
             <explicit-platform explicit-source-supported="true"/>
             <source-roots>
+                <root id="src.Assets.dir"/>
+                <root id="src.JavaFiles.dir"/>
                 <root id="src.dir"/>
             </source-roots>
             <test-roots>
