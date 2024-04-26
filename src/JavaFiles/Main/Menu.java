@@ -1,6 +1,11 @@
+package Main;
+
+import Grade4.GradeFourMenu;
+
 public class Menu extends javax.swing.JFrame {
 
     public Menu() {
+        setUndecorated(true);
         initComponents();
     }
 
@@ -8,6 +13,7 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ExitButton = new javax.swing.JLabel();
         LogoLabel = new javax.swing.JLabel();
         SaveButton = new javax.swing.JLabel();
         PlayButton = new javax.swing.JLabel();
@@ -20,8 +26,22 @@ public class Menu extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exitbutton.png"))); // NOI18N
+        ExitButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ExitButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ExitButtonMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ExitButtonMousePressed(evt);
+            }
+        });
+        getContentPane().add(ExitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1439, 152, -1, -1));
+
         LogoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logomenu.png"))); // NOI18N
-        getContentPane().add(LogoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, -1, -1));
+        getContentPane().add(LogoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, -1, -1));
 
         SaveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/savebutton.png"))); // NOI18N
         SaveButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -32,7 +52,7 @@ public class Menu extends javax.swing.JFrame {
                 SaveButtonMouseExited(evt);
             }
         });
-        getContentPane().add(SaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 630, -1, -1));
+        getContentPane().add(SaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 612, -1, -1));
 
         PlayButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/playbutton.png"))); // NOI18N
         PlayButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -46,9 +66,9 @@ public class Menu extends javax.swing.JFrame {
                 PlayButtonMousePressed(evt);
             }
         });
-        getContentPane().add(PlayButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 470, 320, 150));
+        getContentPane().add(PlayButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(642, 439, 320, 150));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backgroundmenu.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 900));
 
         pack();
@@ -77,6 +97,18 @@ public class Menu extends javax.swing.JFrame {
         gm.setVisible(true);
         dispose();
     }//GEN-LAST:event_PlayButtonMousePressed
+
+    private void ExitButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMousePressed
+        System.exit(0);
+    }//GEN-LAST:event_ExitButtonMousePressed
+
+    private void ExitButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseEntered
+        ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exitbuttonhover.png")));
+    }//GEN-LAST:event_ExitButtonMouseEntered
+
+    private void ExitButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMouseExited
+        ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exitbutton.png")));
+    }//GEN-LAST:event_ExitButtonMouseExited
 
     /**
      * @param args the command line arguments
@@ -114,6 +146,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ExitButton;
     private javax.swing.JLabel LogoLabel;
     private javax.swing.JLabel PlayButton;
     private javax.swing.JLabel SaveButton;

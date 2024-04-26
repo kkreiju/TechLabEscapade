@@ -1,3 +1,5 @@
+package Main;
+
 public class TermsOfUse extends javax.swing.JFrame {
 
     public TermsOfUse() {
