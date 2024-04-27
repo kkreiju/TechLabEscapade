@@ -165,7 +165,29 @@ import javax.swing.Timer;
         }   
         updateTimer(12);
         this.timeleft = 12;
-        startTimer();
+        
+        //HERES HOW TO DO
+        dispose(); //mawagtang leveloneguess
+        //LevelOneDevice lod = new LevelOneDevice(); mo pop up ang device frame
+        //lod.setLocationRelativeTo(null);
+        //lod.setResizable(false);
+        //lod.setVisible(true);
+        
+        //MO COUNT 3 SECONDS BEFORE MA DISPOSE ANG LevelOneDevice
+        //then.....
+        //lom.dispose();
+        
+        //LevelOneDescription lodesc = new LevelOneDescription();
+        //lodesc.setLocationRelativeTo(null);
+        //lodesc.setResizable(false);
+        //lodesc.setVisible(true);
+        
+        //MO COUNT 3 SECONDS BEFORE MA DISPOSE ANG LevelOneDescription
+        //then.....
+        //lom.dispose();
+        
+        //lastly
+        show(); //mo balik ni nga slide
         IncrementGuess();
         System.out.println("Verify Answer");
     }
