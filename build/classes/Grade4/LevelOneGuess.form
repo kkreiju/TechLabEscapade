@@ -29,13 +29,13 @@
     <Component class="javax.swing.JLabel" name="TimeLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial Black" size="30" style="1"/>
+          <Font name="Arial Black" size="36" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Time Left: 12"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="150" y="190" width="270" height="80"/>
+          <AbsoluteConstraints x="120" y="150" width="310" height="80"/>
         </Constraint>
       </Constraints>
     </Component>

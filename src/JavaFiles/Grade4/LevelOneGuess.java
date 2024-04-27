@@ -32,6 +32,8 @@ import org.netbeans.lib.awtextra.AbsoluteLayout;
         timer = new Timer(1000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 updateTimer();
+                checkTimer();
+                
             }
         });
         
@@ -61,9 +63,9 @@ import org.netbeans.lib.awtextra.AbsoluteLayout;
         setTitle("TechLab Escapade");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        TimeLabel.setFont(new java.awt.Font("Arial Black", 1, 30)); // NOI18N
+        TimeLabel.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         TimeLabel.setText("Time Left: 12");
-        getContentPane().add(TimeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 270, 80));
+        getContentPane().add(TimeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 310, 80));
 
         AnswerTextfield.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         AnswerTextfield.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -123,7 +125,7 @@ import org.netbeans.lib.awtextra.AbsoluteLayout;
     private void EnterButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EnterButtonMousePressed
         VerifyAnswer();
     }//GEN-LAST:event_EnterButtonMousePressed
-
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         worddata.set(0, 1 + "");
         SaveDatabaseComponents();
@@ -149,11 +151,30 @@ import org.netbeans.lib.awtextra.AbsoluteLayout;
     private void updateTimer() {
         TimeLeft--;
         if (TimeLeft >= 0) {
-          TimeLabel.setText("Time Left:" + TimeLeft);
+          TimeLabel.setText("Time Left: " + TimeLeft);
         } else {
-            TimeLabel.setText("Time's up!");
             stopTimer();
+            int index = Integer.parseInt(worddata.get(0));
+            worddata.set(0, (index + 1) + "");
+            LoadGuess();
+            TimeLeft = 12;
+            startTimer();
+            TimeLabel.setText("Time Left:" + TimeLeft);
+            AnswerTextfield.setText("");
         }
+    }
+    private void checkTimer(){
+        
+        int index = Integer.parseInt(worddata.get(0));
+        String answer = AnswerTextfield.getText().toLowerCase();
+        if(worddata.get(index).toLowerCase().equals(answer)){
+        stopTimer();
+        TimeLeft = 12;
+        TimeLabel.setText("Time Left: " + TimeLeft);
+        startTimer();
+        
+        }
+    
     }
     
     private void VerifyAnswer(){
@@ -162,8 +183,9 @@ import org.netbeans.lib.awtextra.AbsoluteLayout;
         System.out.println("INDEX: " + index);
         String answer = AnswerTextfield.getText().toLowerCase();
         if(worddata.get(index).toLowerCase().equals(answer)){
+            
             worddata.set(0, (index + 1) + "");
-            JOptionPane.showMessageDialog(null, "ANSWER CORRECT");
+            JOptionPane.showMessageDialog(null, "ANSWER CORRECT.\nPress ENTER to Continue");
             SaveDatabaseComponents();
             LoadGuess();
             AnswerTextfield.setText("");
