@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
     public class LevelOneGuess extends javax.swing.JFrame {
-    
+    private Timer timerLOD;
     private Timer timer;
     private int timeleft = 12;
     int index;
@@ -28,6 +28,14 @@ import javax.swing.Timer;
             }
         });
         startTimer();
+        
+        timerLOD = new Timer(1000, new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                updateLOD(3);
+                updateLODESC(3);
+            }
+        });
+        timerLOD.start();
     }
     
     String filename = "src\\Database\\guessnumbers.txt";
@@ -166,31 +174,44 @@ import javax.swing.Timer;
         updateTimer(12);
         this.timeleft = 12;
         
-        //HERES HOW TO DO
-        dispose(); //mawagtang leveloneguess
-        //LevelOneDevice lod = new LevelOneDevice(); mo pop up ang device frame
-        //lod.setLocationRelativeTo(null);
-        //lod.setResizable(false);
-        //lod.setVisible(true);
-        
         //MO COUNT 3 SECONDS BEFORE MA DISPOSE ANG LevelOneDevice
         //then.....
+        //updateLOD();
         //lom.dispose();
         
-        //LevelOneDescription lodesc = new LevelOneDescription();
-        //lodesc.setLocationRelativeTo(null);
-        //lodesc.setResizable(false);
-        //lodesc.setVisible(true);
+        timerLOD.start();
         
-        //MO COUNT 3 SECONDS BEFORE MA DISPOSE ANG LevelOneDescription
-        //then.....
+        //updateLODESC();
         //lom.dispose();
-        
+      
         //lastly
         show(); //mo balik ni nga slide
         IncrementGuess();
         System.out.println("Verify Answer");
     }
+        private void updateLOD(int timeleft){
+        timeleft--;
+        if(timeleft == 0 ){
+        //dispose(); //mawagtang leveloneguess
+        //LevelOneDevice lod = new LevelOneDevice();
+        //lod.setLocationRelativeTo(null);
+        //lod.setResizable(false);
+        //lod.setVisible(true);
+        timerLOD.stop();
+        }
+        }
+        
+        private void updateLODESC(int timeleft){
+        timeleft--;
+        if(timeleft == 0 ){
+        //dispose();
+        //LevelOneDescription lodesc = new LevelOneDescription();
+        //lodesc.setLocationRelativeTo(null);
+        //lodesc.setResizable(false);
+        //lodesc.setVisible(true);
+        timerLOD.stop();
+        }
+        }
     
     private void IncrementGuess(){
         this.timeleft = 12;
