@@ -223,6 +223,15 @@ import javax.swing.Timer;
             Picture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guessthewordspeaker.png")));
         else if(index == 7)
             Picture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guessthewordprinter.png")));
+        else{
+            worddata.set(0, 1 + "");
+            SaveDatabaseComponents();
+            GradeFourMenu gfm = new GradeFourMenu();
+            gfm.setLocationRelativeTo(null);
+            gfm.setResizable(false);
+            gfm.setVisible(true);
+            dispose();
+        }
     }
     /**
      * @param args the command line arguments

@@ -7,8 +7,6 @@ public class GradeFourMenu extends javax.swing.JFrame {
     public GradeFourMenu() {
         setUndecorated(true);
         initComponents();
-        
-        
     }
 
     @SuppressWarnings("unchecked")
