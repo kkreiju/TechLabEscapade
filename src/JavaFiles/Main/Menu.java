@@ -5,7 +5,7 @@ import Grade4.GradeFourMenu;
 public class Menu extends javax.swing.JFrame {
 
     public Menu() {
-        setUndecorated(true);
+        //setUndecorated(true);
         initComponents();
     }
 

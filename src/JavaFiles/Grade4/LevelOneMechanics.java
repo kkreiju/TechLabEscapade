@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 public class LevelOneMechanics extends javax.swing.JFrame {
 
     public LevelOneMechanics() {
-        setUndecorated(true);
+        //setUndecorated(true);
         LoadDatabaseComponents();
         initComponents();
     }
@@ -38,7 +38,7 @@ public class LevelOneMechanics extends javax.swing.JFrame {
                 NextButtonMousePressed(evt);
             }
         });
-        getContentPane().add(NextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1409, 749, -1, -1));
+        getContentPane().add(NextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 390, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 51));

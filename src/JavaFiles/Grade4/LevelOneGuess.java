@@ -1,18 +1,45 @@
 package Grade4;
 
+
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.io.*;
 import java.util.*;
+import javax.swing.JLabel;
+
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.Timer;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
 
-public class LevelOneGuess extends javax.swing.JFrame {
-
+    public class LevelOneGuess extends javax.swing.JFrame {
+    
+    private Timer timer;
+    private int TimeLeft;
+    
     public LevelOneGuess() {
-        setUndecorated(true);
+        //setUndecorated(true);
         LoadDatabaseComponents();
         initComponents();
         LoadGuess();
+            
+        // Initialize the timer with 1-second delay
+        timer = new Timer(1000, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateTimer();
+            }
+        });
+        
+        TimeLeft = 12; 
+
+        
+        startTimer();
+        
     }
     
     String filename = "src\\Database\\guessnumbers.txt";
@@ -22,6 +49,7 @@ public class LevelOneGuess extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        TimeLabel = new javax.swing.JLabel();
         AnswerTextfield = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         EnterButton = new javax.swing.JLabel();
@@ -32,6 +60,10 @@ public class LevelOneGuess extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TechLab Escapade");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TimeLabel.setFont(new java.awt.Font("Arial Black", 1, 30)); // NOI18N
+        TimeLabel.setText("Time Left: 12");
+        getContentPane().add(TimeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 270, 80));
 
         AnswerTextfield.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         AnswerTextfield.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -104,7 +136,26 @@ public class LevelOneGuess extends javax.swing.JFrame {
             VerifyAnswer();
         }
     }//GEN-LAST:event_AnswerTextfieldKeyPressed
+    
+    
+    private void startTimer() {
+        timer.start();
+    }
 
+    private void stopTimer() {
+        timer.stop();
+    }
+
+    private void updateTimer() {
+        TimeLeft--;
+        if (TimeLeft >= 0) {
+          TimeLabel.setText("Time Left:" + TimeLeft);
+        } else {
+            TimeLabel.setText("Time's up!");
+            stopTimer();
+        }
+    }
+    
     private void VerifyAnswer(){
         System.out.println(worddata);
         int index = Integer.parseInt(worddata.get(0));
@@ -205,6 +256,7 @@ public class LevelOneGuess extends javax.swing.JFrame {
     private javax.swing.JLabel EnterButton;
     private javax.swing.JLabel Picture;
     private javax.swing.JLabel TextfieldPicture;
+    private javax.swing.JLabel TimeLabel;
     private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
