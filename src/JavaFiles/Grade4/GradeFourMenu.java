@@ -129,10 +129,10 @@ public class GradeFourMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_Level1MouseExited
 
     private void Level1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level1MousePressed
-        LevelOneGuess log = new LevelOneGuess();
-        log.setLocationRelativeTo(null);
-        log.setResizable(false);
-        log.setVisible(true);
+        LevelOneMechanics lom = new LevelOneMechanics();
+        lom.setLocationRelativeTo(null);
+        lom.setResizable(false);
+        lom.setVisible(true);
         dispose();
     }//GEN-LAST:event_Level1MousePressed
 
@@ -189,13 +189,13 @@ public class GradeFourMenu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GradeMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GradeFourMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GradeMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GradeFourMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GradeMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GradeFourMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GradeMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GradeFourMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
