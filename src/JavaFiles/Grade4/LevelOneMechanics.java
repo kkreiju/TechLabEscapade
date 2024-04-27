@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 public class LevelOneMechanics extends javax.swing.JFrame {
 
     public LevelOneMechanics() {
-        //setUndecorated(true);
+        setUndecorated(true);
         LoadDatabaseComponents();
         initComponents();
     }

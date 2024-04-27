@@ -3,7 +3,7 @@ package Grade4;
 public class LevelOneProceed extends javax.swing.JFrame {
 
     public LevelOneProceed() {
-        //setUndecorated(true);
+        setUndecorated(true);
         initComponents();
     }
 

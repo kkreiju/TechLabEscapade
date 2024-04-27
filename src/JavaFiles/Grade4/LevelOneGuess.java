@@ -1,51 +1,38 @@
 package Grade4;
 
-
-
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.io.*;
-import java.util.*;
-import javax.swing.JLabel;
-
 import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
 import javax.swing.Timer;
-import org.netbeans.lib.awtextra.AbsoluteLayout;
 
     public class LevelOneGuess extends javax.swing.JFrame {
     
     private Timer timer;
-    private int TimeLeft;
+    private int timeleft = 12;
+    int index;
     
     public LevelOneGuess() {
-        //setUndecorated(true);
+        setUndecorated(true);
         LoadDatabaseComponents();
+        index = Integer.parseInt(worddata.get(0));
         initComponents();
         LoadGuess();
             
         // Initialize the timer with 1-second delay
         timer = new Timer(1000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                updateTimer();
-                checkTimer();
-                
+                updateTimer(timeleft);
             }
         });
-        
-        TimeLeft = 12; 
-
-        
         startTimer();
-        
     }
     
     String filename = "src\\Database\\guessnumbers.txt";
     ArrayList<String> worddata = new ArrayList<String>();
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -139,7 +126,6 @@ import org.netbeans.lib.awtextra.AbsoluteLayout;
         }
     }//GEN-LAST:event_AnswerTextfieldKeyPressed
     
-    
     private void startTimer() {
         timer.start();
     }
@@ -148,50 +134,51 @@ import org.netbeans.lib.awtextra.AbsoluteLayout;
         timer.stop();
     }
 
-    private void updateTimer() {
-        TimeLeft--;
-        if (TimeLeft >= 0) {
-          TimeLabel.setText("Time Left: " + TimeLeft);
+    private void updateTimer(int timeleft) {
+        this.timeleft--;
+        if (timeleft > 0) {
+          TimeLabel.setText("Time Left: " + timeleft);
         } else {
+            this.timeleft = 12;
+            TimeLabel.setText("Time Left: " + timeleft);
             stopTimer();
-            int index = Integer.parseInt(worddata.get(0));
-            worddata.set(0, (index + 1) + "");
-            LoadGuess();
-            TimeLeft = 12;
+            IncrementGuess();
             startTimer();
-            TimeLabel.setText("Time Left:" + TimeLeft);
-            AnswerTextfield.setText("");
         }
-    }
-    private void checkTimer(){
-        
-        int index = Integer.parseInt(worddata.get(0));
-        String answer = AnswerTextfield.getText().toLowerCase();
-        if(worddata.get(index).toLowerCase().equals(answer)){
-        stopTimer();
-        TimeLeft = 12;
-        TimeLabel.setText("Time Left: " + TimeLeft);
-        startTimer();
-        
-        }
-    
     }
     
     private void VerifyAnswer(){
+        //check on console
         System.out.println(worddata);
-        int index = Integer.parseInt(worddata.get(0));
+        index = Integer.parseInt(worddata.get(0));
         System.out.println("INDEX: " + index);
+        
+        //get textfield
         String answer = AnswerTextfield.getText().toLowerCase();
         if(worddata.get(index).toLowerCase().equals(answer)){
-            
-            worddata.set(0, (index + 1) + "");
-            JOptionPane.showMessageDialog(null, "ANSWER CORRECT.\nPress ENTER to Continue");
-            SaveDatabaseComponents();
-            LoadGuess();
-            AnswerTextfield.setText("");
-        }  
-        else
+            stopTimer();
+            JOptionPane.showMessageDialog(null, "ANSWER CORRECT");
+        }
+        else{
+            stopTimer();
             JOptionPane.showMessageDialog(null, "ANSWER INCORRECT");
+        }   
+        updateTimer(12);
+        this.timeleft = 12;
+        startTimer();
+        IncrementGuess();
+        System.out.println("Verify Answer");
+    }
+    
+    private void IncrementGuess(){
+        this.timeleft = 12;
+        startTimer();
+        index = Integer.parseInt(worddata.get(0));
+        worddata.set(0, (index + 1) + "");
+        SaveDatabaseComponents();
+        LoadGuess();
+        AnswerTextfield.setText("");
+        System.out.println("Increment Guess");
     }
     
     private void LoadDatabaseComponents(){

@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 public class GradeFourMenu extends javax.swing.JFrame {
 
     public GradeFourMenu() {
-        //setUndecorated(true);
+        setUndecorated(true);
         initComponents();
         
         
