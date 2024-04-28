@@ -145,7 +145,11 @@ public class GradeFourMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_Level2MouseExited
 
     private void Level2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level2MousePressed
-        JOptionPane.showMessageDialog(null, "WALA PA, PAGHUWAT");
+        LevelTwoMechanics ltm = new LevelTwoMechanics();
+        ltm.setLocationRelativeTo(null);
+        ltm.setResizable(false);
+        ltm.setVisible(true);
+        dispose();
     }//GEN-LAST:event_Level2MousePressed
 
     private void Level3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level3MouseEntered

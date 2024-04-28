@@ -1,8 +1,8 @@
 package Grade4;
 
-public class LevelOneProceed extends javax.swing.JFrame {
+public class LevelTwoProceed extends javax.swing.JFrame {
 
-    public LevelOneProceed() {
+    public LevelTwoProceed() {
         setUndecorated(true);
         initComponents();
     }
@@ -33,7 +33,7 @@ public class LevelOneProceed extends javax.swing.JFrame {
         });
         getContentPane().add(StartButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 602, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.1proceed.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.2proceed.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 228, -1, -1));
 
         BackGroundGrade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
@@ -51,10 +51,10 @@ public class LevelOneProceed extends javax.swing.JFrame {
     }//GEN-LAST:event_StartButtonMouseExited
 
     private void StartButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartButtonMousePressed
-        LevelOneGuess log = new LevelOneGuess();
-        log.setLocationRelativeTo(null);
-        log.setResizable(false);
-        log.setVisible(true);
+        LevelTwoRoom ltr = new LevelTwoRoom();
+        ltr.setLocationRelativeTo(null);
+        ltr.setResizable(false);
+        ltr.setVisible(true);
         dispose();
     }//GEN-LAST:event_StartButtonMousePressed
 
@@ -75,14 +75,18 @@ public class LevelOneProceed extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LevelOneProceed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LevelTwoProceed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LevelOneProceed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LevelTwoProceed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LevelOneProceed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LevelTwoProceed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LevelOneProceed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LevelTwoProceed.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -91,7 +95,7 @@ public class LevelOneProceed extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LevelOneProceed().setVisible(true);
+                new LevelTwoProceed().setVisible(true);
             }
         });
     }

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.io.*;
 import javax.swing.JOptionPane;
 
-public class LevelOneMechanics extends javax.swing.JFrame {
+public class LevelTwoMechanics extends javax.swing.JFrame {
 
-    public LevelOneMechanics() {
+    public LevelTwoMechanics() {
         setUndecorated(true);
         LoadDatabaseComponents();
         initComponents();
@@ -39,7 +39,7 @@ public class LevelOneMechanics extends javax.swing.JFrame {
         getContentPane().add(NextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1408, 749, -1, -1));
 
         BackGroundGrade.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BackGroundGrade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefour_onemechanic.png"))); // NOI18N
+        BackGroundGrade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefour_twomechanic.png"))); // NOI18N
         getContentPane().add(BackGroundGrade, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 900));
 
         pack();
@@ -54,7 +54,7 @@ public class LevelOneMechanics extends javax.swing.JFrame {
     }//GEN-LAST:event_NextButtonMouseExited
 
     private void NextButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMousePressed
-        LevelOneProceed lop = new LevelOneProceed();
+        LevelTwoProceed lop = new LevelTwoProceed();
         lop.setLocationRelativeTo(null);
         lop.setResizable(false);
         lop.setVisible(true);
@@ -93,27 +93,21 @@ public class LevelOneMechanics extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LevelOneMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LevelTwoMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LevelOneMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LevelTwoMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LevelOneMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LevelTwoMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LevelOneMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LevelTwoMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LevelOneMechanics().setVisible(true);
+                new LevelTwoMechanics().setVisible(true);
             }
         });
     }
