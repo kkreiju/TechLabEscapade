@@ -18,7 +18,6 @@ public class LevelOneMechanics extends javax.swing.JFrame {
     private void initComponents() {
 
         NextButton = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         BackGroundGrade = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -38,14 +37,10 @@ public class LevelOneMechanics extends javax.swing.JFrame {
                 NextButtonMousePressed(evt);
             }
         });
-        getContentPane().add(NextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 390, -1, -1));
+        getContentPane().add(NextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1408, 749, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 51));
-        jLabel1.setText("mechanics");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 320, -1, -1));
-
-        BackGroundGrade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
+        BackGroundGrade.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        BackGroundGrade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefour_onemechanic.png"))); // NOI18N
         getContentPane().add(BackGroundGrade, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 900));
 
         pack();
@@ -120,6 +115,5 @@ public class LevelOneMechanics extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BackGroundGrade;
     private javax.swing.JLabel NextButton;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

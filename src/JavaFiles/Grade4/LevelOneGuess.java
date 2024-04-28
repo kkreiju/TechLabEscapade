@@ -5,8 +5,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.io.*;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
     public class LevelOneGuess extends javax.swing.JFrame {
@@ -16,8 +14,10 @@ import javax.swing.Timer;
     private int timeleft = 12;
     private int displayleft = 3;
     private boolean visible = false;
+    boolean gameover = false;
     int index;
     int heartindex = 3;
+    LevelOneDevice lod = new LevelOneDevice();
     
     
     public LevelOneGuess() {
@@ -36,7 +36,6 @@ import javax.swing.Timer;
         timer = new Timer(1000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 updateTimer(timeleft);
-               
             }
         });
         startTimer();
@@ -44,7 +43,6 @@ import javax.swing.Timer;
         timerLOD = new Timer(1000, new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 updateLOD(displayleft, visible);
-                
             }
         });
         
@@ -53,9 +51,6 @@ import javax.swing.Timer;
                 updateLODESC(displayleft, visible);
             }
         });
-        
-        
-        
     }
     
     String filename = "src\\Database\\guessnumbers.txt";
@@ -71,7 +66,6 @@ import javax.swing.Timer;
         Heart2 = new javax.swing.JLabel();
         Heart1 = new javax.swing.JLabel();
         AnswerTextfield = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         EnterButton = new javax.swing.JLabel();
         TextfieldPicture = new javax.swing.JLabel();
         Picture = new javax.swing.JLabel();
@@ -106,14 +100,6 @@ import javax.swing.Timer;
             }
         });
         getContentPane().add(AnswerTextfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 460, 380, 40));
-
-        jButton1.setText("RESET TO INDEX 1 (DUMMY)");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 700, -1, -1));
 
         EnterButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         EnterButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/enterbutton.png"))); // NOI18N
@@ -156,13 +142,6 @@ import javax.swing.Timer;
         VerifyAnswer();
     }//GEN-LAST:event_EnterButtonMousePressed
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        worddata.set(0, 1 + "");
-        SaveDatabaseComponents();
-        LoadGuess();
-        AnswerTextfield.setText("");
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void AnswerTextfieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AnswerTextfieldKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             VerifyAnswer();
@@ -191,36 +170,28 @@ import javax.swing.Timer;
             ShowDeviceandDescription();
             LifeStatus(heartindex);
             this.heartindex--;
-           
         }
     }
     
     private void GameOver(){
-        worddata.set(0, 1 + "");
-        SaveDatabaseComponents();
-        GradeFourMenu gfm = new GradeFourMenu();
-        gfm.setLocationRelativeTo(null);
-        gfm.setResizable(false);
-        gfm.setVisible(true);
-        dispose();
+        gameover = true;
+        ShowDeviceandDescription();
     }
     
     private void LifeStatus(int heartindex){
         
         if(heartindex == 3){
-         Heart1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/emptyheart.png")));
-         heartindex = 2;
+            Heart3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/emptyheart.png")));
+            heartindex = 2;
         }
         else if(heartindex == 2){
-         Heart2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/emptyheart.png")));
-          heartindex = 1;
-
+            Heart2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/emptyheart.png")));
+            heartindex = 1;
         }
         else if(heartindex == 1){
-         Heart3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/emptyheart.png")));
-        JOptionPane.showMessageDialog(null, "GameOver");
-        stopTimer();
-        GameOver();
+            Heart1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/emptyheart.png")));
+            stopTimer();
+            GameOver();
         }
     }
     
@@ -235,11 +206,11 @@ import javax.swing.Timer;
         String answer = AnswerTextfield.getText().toLowerCase();
         if(worddata.get(index).toLowerCase().equals(answer)){
             stopTimer();
-            JOptionPane.showMessageDialog(null, "ANSWER CORRECT");
         }
         else{
             stopTimer();
-            JOptionPane.showMessageDialog(null, "ANSWER INCORRECT");
+            LifeStatus(heartindex);
+            this.heartindex--;
         }   
         updateTimer(12);
         this.timeleft = 12;
@@ -250,13 +221,14 @@ import javax.swing.Timer;
             this.displayleft--;
             if(displayleft > 0 ){
                 if(!this.visible){
-                    //dispose(); //mawagtang leveloneguess
+                    dispose(); //mawagtang leveloneguess
                     System.out.println("Guess Dispose");
                     
-                    //LevelOneDevice lod = new LevelOneDevice();
-                    //lod.setLocationRelativeTo(null);
-                    //lod.setResizable(false);
-                    //lod.setVisible(true);
+                    lod.LoadDatabaseComponents();
+                    lod.LoadDevice();
+                    lod.setLocationRelativeTo(null);
+                    lod.setResizable(false);
+                    lod.setVisible(true);
                     System.out.println("Device Show");
                     
                     this.visible = true;
@@ -277,15 +249,12 @@ import javax.swing.Timer;
             this.displayleft--;
             if(displayleft > 0 ){
                 if(!this.visible){
-                    //lod.dispose(); //mawagtang levelonedevice
+                    lod.LoadDescription(); //mawagtang levelonedevice
                     System.out.println("Device Dispose");
                     
-                    //LevelOneDescription lodesc = new LevelOneDescription();
-                    //lodesc.setLocationRelativeTo(null);
-                    //lodesc.setResizable(false);
-                    //lodesc.setVisible(true);
                     System.out.println("Description Show");
                     
+                    TimeLabel.setText("Time Left: " + 12);
                     this.visible = true;
                 }
                 System.out.println(displayleft);
@@ -295,13 +264,24 @@ import javax.swing.Timer;
                 timerLODESC.stop();
                 this.displayleft = 3;
                 
-                //lodesc.dispose();
+                lod.dispose();
                 System.out.println("Description Dispose");
                 
-                //show(); //mo balik ni nga slide
-                System.out.println("Guess Show");
-                
-                IncrementGuess(); //out of time + answered
+                if(gameover){
+                    worddata.set(0, 1 + "");
+                    SaveDatabaseComponents();
+                    GradeFourMenu gfm = new GradeFourMenu();
+                    gfm.setLocationRelativeTo(null);
+                    gfm.setResizable(false);
+                    gfm.setVisible(true);
+                    dispose();
+                    gameover = false;
+                }
+                else{
+                    show(); //mo balik ni nga slide
+                    System.out.println("Guess Show");
+                    IncrementGuess(); //out of time + answered
+                }  
             }
         }
         
@@ -331,7 +311,6 @@ import javax.swing.Timer;
          ois.close();
          fis.close();
       } catch (IOException | ClassNotFoundException e) {
-         JOptionPane.showMessageDialog(null, "guessnumbers.txt not found");
          e.printStackTrace();
       }
     }
@@ -420,6 +399,5 @@ import javax.swing.Timer;
     private javax.swing.JLabel Picture;
     private javax.swing.JLabel TextfieldPicture;
     private javax.swing.JLabel TimeLabel;
-    private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
 }
