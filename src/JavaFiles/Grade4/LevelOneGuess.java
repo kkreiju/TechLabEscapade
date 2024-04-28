@@ -31,11 +31,10 @@ import javax.swing.Timer;
         
         timerLOD = new Timer(1000, new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                updateLOD(3);
-                updateLODESC(3);
+                updateLOD(3, false);
+                updateLODESC(3, false);
             }
         });
-        timerLOD.start();
     }
     
     String filename = "src\\Database\\guessnumbers.txt";
@@ -150,8 +149,8 @@ import javax.swing.Timer;
             this.timeleft = 12;
             TimeLabel.setText("Time Left: " + timeleft);
             stopTimer();
+            ShowDeviceandDescription();
             IncrementGuess();
-            startTimer();
         }
     }
     
@@ -174,44 +173,67 @@ import javax.swing.Timer;
         updateTimer(12);
         this.timeleft = 12;
         
-        //MO COUNT 3 SECONDS BEFORE MA DISPOSE ANG LevelOneDevice
-        //then.....
-        //updateLOD();
-        //lom.dispose();
+        ShowDeviceandDescription();
         
-        timerLOD.start();
-        
-        //updateLODESC();
-        //lom.dispose();
-      
-        //lastly
-        show(); //mo balik ni nga slide
         IncrementGuess();
         System.out.println("Verify Answer");
     }
-        private void updateLOD(int timeleft){
-        timeleft--;
-        if(timeleft == 0 ){
-        //dispose(); //mawagtang leveloneguess
-        //LevelOneDevice lod = new LevelOneDevice();
-        //lod.setLocationRelativeTo(null);
-        //lod.setResizable(false);
-        //lod.setVisible(true);
-        timerLOD.stop();
-        }
+        private void updateLOD(int timeleft, boolean visible){
+            timeleft--;
+            if(timeleft > 0 ){
+                if(!visible){
+                    //dispose(); //mawagtang leveloneguess
+                    System.out.println("Device Show");
+                    //LevelOneDevice lod = new LevelOneDevice();
+                    //lod.setLocationRelativeTo(null);
+                    //lod.setResizable(false);
+                    //lod.setVisible(true);
+                    visible = true;
+                }
+            }
+            else{
+                visible = false;
+                timerLOD.stop();
+                System.out.println("Device Dispose");
+                updateLODESC(3, false);
+            }
         }
         
-        private void updateLODESC(int timeleft){
-        timeleft--;
-        if(timeleft == 0 ){
-        //dispose();
-        //LevelOneDescription lodesc = new LevelOneDescription();
-        //lodesc.setLocationRelativeTo(null);
-        //lodesc.setResizable(false);
-        //lodesc.setVisible(true);
-        timerLOD.stop();
+        private void updateLODESC(int timeleft, boolean visible){
+            timeleft--;
+            if(timeleft == 0 ){
+                if(!visible){
+                    //dispose(); //mawagtang leveloneguess
+                    System.out.println("Description Show");
+                    //LevelOneDescription lodesc = new LevelOneDescription();
+                    //lodesc.setLocationRelativeTo(null);
+                    //lodesc.setResizable(false);
+                    //lodesc.setVisible(true);
+                    visible = true;
+                }
+                else{
+                    visible = false;
+                    timerLOD.stop();
+                    System.out.println("Description Dispose");
+                    timerLOD.stop();
+                    System.out.println("Guess Show");
+                    //IncrementGuess();
+                    //startTimer();
+                }
+            }
         }
-        }
+        
+    private void ShowDeviceandDescription(){
+        updateLOD(3, false);
+        //lom.dispose();
+        System.out.println("Guess Dispose");
+        timerLOD.start();
+        //lom.dispose();
+      
+        //lastly
+        
+        //show(); //mo balik ni nga slide
+    }
     
     private void IncrementGuess(){
         this.timeleft = 12;
