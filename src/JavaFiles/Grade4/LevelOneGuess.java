@@ -10,8 +10,11 @@ import javax.swing.Timer;
 
     public class LevelOneGuess extends javax.swing.JFrame {
     private Timer timerLOD;
+    private Timer timerLODESC;
     private Timer timer;
     private int timeleft = 12;
+    private int displayleft = 3;
+    private boolean visible = false;
     int index;
     
     public LevelOneGuess() {
@@ -19,7 +22,12 @@ import javax.swing.Timer;
         LoadDatabaseComponents();
         index = Integer.parseInt(worddata.get(0));
         initComponents();
+        
+        //avoid bug (reset to mouse)
+        worddata.set(0, 1 + "");
+        SaveDatabaseComponents();
         LoadGuess();
+        AnswerTextfield.setText("");
             
         // Initialize the timer with 1-second delay
         timer = new Timer(1000, new ActionListener() {
@@ -31,10 +39,17 @@ import javax.swing.Timer;
         
         timerLOD = new Timer(1000, new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                updateLOD(3, false);
-                updateLODESC(3, false);
+                updateLOD(displayleft, visible);
+                
             }
         });
+        
+        timerLODESC = new Timer(1000, new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                updateLODESC(displayleft, visible);
+            }
+        });
+        
     }
     
     String filename = "src\\Database\\guessnumbers.txt";
@@ -46,6 +61,9 @@ import javax.swing.Timer;
     private void initComponents() {
 
         TimeLabel = new javax.swing.JLabel();
+        Heart3 = new javax.swing.JLabel();
+        Heart2 = new javax.swing.JLabel();
+        Heart1 = new javax.swing.JLabel();
         AnswerTextfield = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         EnterButton = new javax.swing.JLabel();
@@ -60,6 +78,18 @@ import javax.swing.Timer;
         TimeLabel.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         TimeLabel.setText("Time Left: 12");
         getContentPane().add(TimeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 310, 80));
+
+        Heart3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Heart3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/heart.png"))); // NOI18N
+        getContentPane().add(Heart3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, -1, -1));
+
+        Heart2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Heart2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/heart.png"))); // NOI18N
+        getContentPane().add(Heart2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, -1, -1));
+
+        Heart1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Heart1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/heart.png"))); // NOI18N
+        getContentPane().add(Heart1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, -1, -1));
 
         AnswerTextfield.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         AnswerTextfield.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -150,7 +180,6 @@ import javax.swing.Timer;
             TimeLabel.setText("Time Left: " + timeleft);
             stopTimer();
             ShowDeviceandDescription();
-            IncrementGuess();
         }
     }
     
@@ -174,65 +203,70 @@ import javax.swing.Timer;
         this.timeleft = 12;
         
         ShowDeviceandDescription();
-        
-        IncrementGuess();
-        System.out.println("Verify Answer");
     }
-        private void updateLOD(int timeleft, boolean visible){
-            timeleft--;
-            if(timeleft > 0 ){
-                if(!visible){
+        private void updateLOD(int displayleft, boolean visible){
+            this.displayleft--;
+            if(displayleft > 0 ){
+                if(!this.visible){
                     //dispose(); //mawagtang leveloneguess
-                    System.out.println("Device Show");
+                    System.out.println("Guess Dispose");
+                    
                     //LevelOneDevice lod = new LevelOneDevice();
                     //lod.setLocationRelativeTo(null);
                     //lod.setResizable(false);
                     //lod.setVisible(true);
-                    visible = true;
+                    System.out.println("Device Show");
+                    
+                    this.visible = true;
                 }
+                System.out.println(displayleft);
             }
             else{
                 visible = false;
                 timerLOD.stop();
-                System.out.println("Device Dispose");
-                updateLODESC(3, false);
+                this.displayleft = 3;
+                this.visible = false;
+                updateLODESC(this.displayleft, this.visible);
+                timerLODESC.start();
             }
         }
         
-        private void updateLODESC(int timeleft, boolean visible){
-            timeleft--;
-            if(timeleft == 0 ){
-                if(!visible){
-                    //dispose(); //mawagtang leveloneguess
-                    System.out.println("Description Show");
+        private void updateLODESC(int displayleft, boolean visible){
+            this.displayleft--;
+            if(displayleft > 0 ){
+                if(!this.visible){
+                    //lod.dispose(); //mawagtang levelonedevice
+                    System.out.println("Device Dispose");
+                    
                     //LevelOneDescription lodesc = new LevelOneDescription();
                     //lodesc.setLocationRelativeTo(null);
                     //lodesc.setResizable(false);
                     //lodesc.setVisible(true);
-                    visible = true;
+                    System.out.println("Description Show");
+                    
+                    this.visible = true;
                 }
-                else{
-                    visible = false;
-                    timerLOD.stop();
-                    System.out.println("Description Dispose");
-                    timerLOD.stop();
-                    System.out.println("Guess Show");
-                    //IncrementGuess();
-                    //startTimer();
-                }
+                System.out.println(displayleft);
+            }
+            else{
+                this.visible = false;
+                timerLODESC.stop();
+                this.displayleft = 3;
+                
+                //lodesc.dispose();
+                System.out.println("Description Dispose");
+                
+                //show(); //mo balik ni nga slide
+                System.out.println("Guess Show");
+                
+                IncrementGuess(); //out of time + answered
             }
         }
         
     private void ShowDeviceandDescription(){
         updateLOD(3, false);
-        //lom.dispose();
-        System.out.println("Guess Dispose");
         timerLOD.start();
-        //lom.dispose();
-      
-        //lastly
-        
-        //show(); //mo balik ni nga slide
+        //chain method to updateLOD and updateLODESC
     }
     
     private void IncrementGuess(){
@@ -244,6 +278,7 @@ import javax.swing.Timer;
         LoadGuess();
         AnswerTextfield.setText("");
         System.out.println("Increment Guess");
+        visible = false;
     }
     
     private void LoadDatabaseComponents(){
@@ -337,6 +372,9 @@ import javax.swing.Timer;
     private javax.swing.JTextField AnswerTextfield;
     private javax.swing.JLabel BackGroundGrade;
     private javax.swing.JLabel EnterButton;
+    private javax.swing.JLabel Heart1;
+    private javax.swing.JLabel Heart2;
+    private javax.swing.JLabel Heart3;
     private javax.swing.JLabel Picture;
     private javax.swing.JLabel TextfieldPicture;
     private javax.swing.JLabel TimeLabel;
