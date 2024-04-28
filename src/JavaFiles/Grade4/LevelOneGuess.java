@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.io.*;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -16,6 +17,8 @@ import javax.swing.Timer;
     private int displayleft = 3;
     private boolean visible = false;
     int index;
+    int heartindex = 3;
+    
     
     public LevelOneGuess() {
         setUndecorated(true);
@@ -33,6 +36,7 @@ import javax.swing.Timer;
         timer = new Timer(1000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 updateTimer(timeleft);
+               
             }
         });
         startTimer();
@@ -49,6 +53,8 @@ import javax.swing.Timer;
                 updateLODESC(displayleft, visible);
             }
         });
+        
+        
         
     }
     
@@ -173,15 +179,51 @@ import javax.swing.Timer;
 
     private void updateTimer(int timeleft) {
         this.timeleft--;
+        
         if (timeleft > 0) {
           TimeLabel.setText("Time Left: " + timeleft);
         } else {
+            
             this.timeleft = 12;
             TimeLabel.setText("Time Left: " + timeleft);
             stopTimer();
+            
             ShowDeviceandDescription();
+            LifeStatus(heartindex);
+            this.heartindex--;
+           
         }
     }
+    
+    private void GameOver(){
+        worddata.set(0, 1 + "");
+        SaveDatabaseComponents();
+        GradeFourMenu gfm = new GradeFourMenu();
+        gfm.setLocationRelativeTo(null);
+        gfm.setResizable(false);
+        gfm.setVisible(true);
+        dispose();
+    }
+    
+    private void LifeStatus(int heartindex){
+        
+        if(heartindex == 3){
+         Heart1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/emptyheart.png")));
+         heartindex = 2;
+        }
+        else if(heartindex == 2){
+         Heart2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/emptyheart.png")));
+          heartindex = 1;
+
+        }
+        else if(heartindex == 1){
+         Heart3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/emptyheart.png")));
+        JOptionPane.showMessageDialog(null, "GameOver");
+        stopTimer();
+        GameOver();
+        }
+    }
+    
     
     private void VerifyAnswer(){
         //check on console
