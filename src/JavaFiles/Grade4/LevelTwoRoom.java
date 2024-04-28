@@ -90,11 +90,21 @@ public class LevelTwoRoom extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButtonMousePressed
 
     private void MouseLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MouseLabelMousePressed
-        JOptionPane.showMessageDialog(null, "mauz");
+
+        LevelTwoMouse LTM = new LevelTwoMouse();
+        LTM.setLocationRelativeTo(null);
+        LTM.setResizable(false);
+        LTM.setVisible(true);
+        dispose();
     }//GEN-LAST:event_MouseLabelMousePressed
 
     private void KeyboardLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KeyboardLabelMousePressed
-        JOptionPane.showMessageDialog(null, "keyboarz");
+
+        KeyBoardOne KBO = new KeyBoardOne();
+        KBO.setLocationRelativeTo(null);
+        KBO.setResizable(false);
+        KBO.setVisible(true);
+        dispose();
     }//GEN-LAST:event_KeyboardLabelMousePressed
 
     private void CPULabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CPULabelMousePressed
