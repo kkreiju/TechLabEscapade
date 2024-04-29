@@ -16,6 +16,7 @@ public class LevelTwoMouseDrag extends javax.swing.JFrame {
 
         MouseRight = new javax.swing.JLabel();
         MouseLeft = new javax.swing.JLabel();
+        NextButton = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,6 +50,20 @@ public class LevelTwoMouseDrag extends javax.swing.JFrame {
         });
         getContentPane().add(MouseLeft, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, -1, -1));
 
+        NextButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nextbutton.png"))); // NOI18N
+        NextButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                NextButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                NextButtonMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                NextButtonMousePressed(evt);
+            }
+        });
+        getContentPane().add(NextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 730, -1, -1));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalexcelbg.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -78,6 +93,22 @@ public class LevelTwoMouseDrag extends javax.swing.JFrame {
     private void MouseRightMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MouseRightMouseExited
          MouseRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseRightUnHoverd.png")));
     }//GEN-LAST:event_MouseRightMouseExited
+
+    private void NextButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMouseEntered
+        NextButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nextbuttonhover.png")));
+    }//GEN-LAST:event_NextButtonMouseEntered
+
+    private void NextButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMouseExited
+        NextButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nextbutton.png")));
+    }//GEN-LAST:event_NextButtonMouseExited
+
+    private void NextButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMousePressed
+        LevelTwoRoom LTR = new LevelTwoRoom();
+        LTR.setLocationRelativeTo(null);
+        LTR.setResizable(false);
+        LTR.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_NextButtonMousePressed
 
     /**
      * @param args the command line arguments
@@ -117,6 +148,7 @@ public class LevelTwoMouseDrag extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel MouseLeft;
     private javax.swing.JLabel MouseRight;
+    private javax.swing.JLabel NextButton;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
