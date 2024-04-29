@@ -4,6 +4,9 @@
  */
 package Grade4;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 /**
  *
  * @author VJ
@@ -44,6 +47,9 @@ public class LevelTwoMouse extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 NextButtonMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                NextButtonMousePressed(evt);
             }
         });
         getContentPane().add(NextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1340, 740, -1, -1));
@@ -105,6 +111,7 @@ public class LevelTwoMouse extends javax.swing.JFrame {
 
     private void MouseLeftUnhoveredMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MouseLeftUnhoveredMousePressed
         MouseLeftUnhovered.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseLeftWrong.png")));
+      
     }//GEN-LAST:event_MouseLeftUnhoveredMousePressed
 
     private void MouseRightUnhoveredMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MouseRightUnhoveredMousePressed
@@ -118,6 +125,14 @@ public class LevelTwoMouse extends javax.swing.JFrame {
     private void NextButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMouseExited
         NextButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nextbutton.png")));
     }//GEN-LAST:event_NextButtonMouseExited
+
+    private void NextButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMousePressed
+        LevelTwoMouseDrag LTMD = new LevelTwoMouseDrag();
+        LTMD.setLocationRelativeTo(null);
+        LTMD.setResizable(false);
+        LTMD.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_NextButtonMousePressed
 
     /**
      * @param args the command line arguments
