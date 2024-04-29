@@ -2,11 +2,13 @@ package Grade4;
 
 import java.util.ArrayList;
 import java.io.*;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class LevelTwoMechanics extends javax.swing.JFrame {
 
     public LevelTwoMechanics() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         LoadDatabaseComponents();
         initComponents();

@@ -3,10 +3,12 @@ package Main;
 import Grade4.GradeFourMenu;
 import Grade5.GradeFiveMenu;
 import Grade6.GradeSixMenu;
+import javax.swing.ImageIcon;
 
 public class GradeMenu extends javax.swing.JFrame {
 
     public GradeMenu() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
     }

@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.io.*;
+import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
     public class LevelOneGuess extends javax.swing.JFrame {
@@ -21,6 +22,7 @@ import javax.swing.Timer;
     
     
     public LevelOneGuess() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         LoadDatabaseComponents();
         index = Integer.parseInt(worddata.get(0));

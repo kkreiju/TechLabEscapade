@@ -1,10 +1,12 @@
 package Grade4;
 import Main.GradeMenu;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class GradeFourMenu extends javax.swing.JFrame {
 
     public GradeFourMenu() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
     }
@@ -99,7 +101,7 @@ public class GradeFourMenu extends javax.swing.JFrame {
         getContentPane().add(BackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
 
         BackGroundGrade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
-        getContentPane().add(BackGroundGrade, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1600, 900));
+        getContentPane().add(BackGroundGrade, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 900));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

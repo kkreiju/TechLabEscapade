@@ -1,10 +1,12 @@
 package Main;
 
 import Grade4.GradeFourMenu;
+import javax.swing.ImageIcon;
 
 public class Menu extends javax.swing.JFrame {
 
     public Menu() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
     }

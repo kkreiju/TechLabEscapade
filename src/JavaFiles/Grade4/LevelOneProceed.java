@@ -1,8 +1,11 @@
 package Grade4;
 
+import javax.swing.ImageIcon;
+
 public class LevelOneProceed extends javax.swing.JFrame {
 
     public LevelOneProceed() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
     }

@@ -1,8 +1,11 @@
 package Main;
 
+import javax.swing.ImageIcon;
+
 public class TermsOfUse extends javax.swing.JFrame {
 
     public TermsOfUse() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setResizable(false);
         initComponents();
     }

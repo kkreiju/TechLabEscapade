@@ -1,12 +1,94 @@
 package Grade4;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 public class LevelTwoRoom extends javax.swing.JFrame {
 
+    private Timer mousetimer;
+    private Timer keyboardandcputimer;
+    private int timeleft = 3;
+    private int index = 1;
+    LevelTwoDisplay ltd = new LevelTwoDisplay();
+    
     public LevelTwoRoom() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
+        
+        mousetimer = new Timer(1000, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateMouseTimer(timeleft, index);
+            }
+        });
+        
+        keyboardandcputimer = new Timer(1000, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateKeyboardandCPUTimer(timeleft);
+            }
+        });
+    }
+    
+    private void updateMouseTimer(int timeleft, int index) {
+        this.timeleft--;
+        if(this.index >= 1 && this.index <= 3){
+            if (this.timeleft < 0) {
+                this.timeleft = 3;
+                this.index++;
+                ltd.LoadImage(this.index);
+                updateMouseTimer(3, this.index);
+            }
+        }
+        else if(this.index == 4){
+            mousetimer.stop();
+            ltd.dispose();
+            LevelTwoMouse LTM = new LevelTwoMouse();
+            LTM.setLocationRelativeTo(null);
+            LTM.setResizable(false);
+            LTM.setVisible(true);
+            dispose();
+        }
+    }
+    
+    private void updateKeyboardandCPUTimer(int timeleft) {
+        this.timeleft--;
+        if (this.timeleft < 0) {
+            this.timeleft = 3;
+            keyboardandcputimer.stop();
+            ltd.dispose();
+            show();
+        }
+    }
+    
+    public void DisplayMouse(){
+        this.index = 1;
+        ltd.LoadImage(1);
+        Display();
+        mousetimer.start();
+    }
+    
+    public void DisplayMonitor(){
+        this.index = 4;
+        ltd.LoadImage(4);
+        Display();
+        keyboardandcputimer.start();
+    }
+    
+    public void DisplayCPU(){
+        this.index = 5;
+        ltd.LoadImage(5);
+        Display();
+        keyboardandcputimer.start();
+    }
+    
+    public void Display(){
+        dispose();
+        ltd.setLocationRelativeTo(null);
+        ltd.setResizable(false);
+        ltd.setVisible(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -90,17 +172,11 @@ public class LevelTwoRoom extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButtonMousePressed
 
     private void MouseLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MouseLabelMousePressed
-
-        LevelTwoMouse LTM = new LevelTwoMouse();
-        LTM.setLocationRelativeTo(null);
-        LTM.setResizable(false);
-        LTM.setVisible(true);
-        dispose();
+        DisplayMouse();
     }//GEN-LAST:event_MouseLabelMousePressed
 
     private void KeyboardLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KeyboardLabelMousePressed
-
-        KeyBoardOne KBO = new KeyBoardOne();
+        LevelTwoKeyboardOne KBO = new LevelTwoKeyboardOne();
         KBO.setLocationRelativeTo(null);
         KBO.setResizable(false);
         KBO.setVisible(true);
@@ -108,11 +184,11 @@ public class LevelTwoRoom extends javax.swing.JFrame {
     }//GEN-LAST:event_KeyboardLabelMousePressed
 
     private void CPULabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CPULabelMousePressed
-        JOptionPane.showMessageDialog(null, "cpeeu");
+        DisplayCPU();
     }//GEN-LAST:event_CPULabelMousePressed
 
     private void MonitorLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MonitorLabelMousePressed
-        JOptionPane.showMessageDialog(null, "monitorz");
+        DisplayMonitor();
     }//GEN-LAST:event_MonitorLabelMousePressed
 
     /**
