@@ -2,7 +2,7 @@ package Main;
 
 import Grade4.GradeFourMenu;
 import Grade5.GradeFiveMenu;
-import Grade6.GradeSixMenu;
+import Grade6.GradeSixMechanics;
 import javax.swing.ImageIcon;
 
 public class GradeMenu extends javax.swing.JFrame {
@@ -111,7 +111,7 @@ public class GradeMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_GradeFiveLabelMousePressed
 
     private void GradeSixLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GradeSixLabelMousePressed
-        GradeSixMenu GSM = new GradeSixMenu();
+        GradeSixMechanics GSM = new GradeSixMechanics();
         GSM.setLocationRelativeTo(null);
         GSM.setResizable(false);
         GSM.setVisible(true);

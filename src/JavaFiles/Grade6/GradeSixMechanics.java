@@ -1,10 +1,10 @@
-package Grade4;
+package Grade6;
 
 import javax.swing.ImageIcon;
 
-public class LevelOneMechanics extends javax.swing.JFrame {
+public class GradeSixMechanics extends javax.swing.JFrame {
 
-    public LevelOneMechanics() {
+    public GradeSixMechanics() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
@@ -15,10 +15,9 @@ public class LevelOneMechanics extends javax.swing.JFrame {
     private void initComponents() {
 
         NextButton = new javax.swing.JLabel();
-        BackGroundGrade = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("TechLab Escapade");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         NextButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -36,9 +35,8 @@ public class LevelOneMechanics extends javax.swing.JFrame {
         });
         getContentPane().add(NextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1408, 749, -1, -1));
 
-        BackGroundGrade.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BackGroundGrade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefour_onemechanic.png"))); // NOI18N
-        getContentPane().add(BackGroundGrade, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 900));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradesixmechanic.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -52,10 +50,10 @@ public class LevelOneMechanics extends javax.swing.JFrame {
     }//GEN-LAST:event_NextButtonMouseExited
 
     private void NextButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMousePressed
-        LevelOneProceed lop = new LevelOneProceed();
-        lop.setLocationRelativeTo(null);
-        lop.setResizable(false);
-        lop.setVisible(true);
+        GradeSixProceed gsp = new GradeSixProceed();
+        gsp.setLocationRelativeTo(null);
+        gsp.setResizable(false);
+        gsp.setVisible(true);
         dispose();
     }//GEN-LAST:event_NextButtonMousePressed
 
@@ -76,33 +74,27 @@ public class LevelOneMechanics extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LevelOneMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GradeSixMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LevelOneMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GradeSixMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LevelOneMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GradeSixMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LevelOneMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GradeSixMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LevelOneMechanics().setVisible(true);
+                new GradeSixMechanics().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel BackGroundGrade;
     private javax.swing.JLabel NextButton;
+    private javax.swing.JLabel background;
     // End of variables declaration//GEN-END:variables
 }

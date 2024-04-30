@@ -2,10 +2,13 @@
 package Grade4;
 
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 
 public class LevelTwoTypeName extends javax.swing.JFrame {
 
     public LevelTwoTypeName() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
+        setUndecorated(true);
         initComponents();
     }
 
