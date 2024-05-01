@@ -2,9 +2,11 @@ package Grade4;
 
 import java.util.ArrayList;
 import java.io.*;
+import javax.swing.ImageIcon;
 
 public class LevelOneDevice extends javax.swing.JFrame {
     public LevelOneDevice() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
     }

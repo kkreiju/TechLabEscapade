@@ -83,15 +83,15 @@ import javax.swing.Timer;
 
         Heart3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Heart3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/heart.png"))); // NOI18N
-        getContentPane().add(Heart3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, -1, -1));
+        getContentPane().add(Heart3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, -1, -1));
 
         Heart2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Heart2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/heart.png"))); // NOI18N
-        getContentPane().add(Heart2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, -1, -1));
+        getContentPane().add(Heart2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, -1, -1));
 
         Heart1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Heart1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/heart.png"))); // NOI18N
-        getContentPane().add(Heart1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, -1, -1));
+        getContentPane().add(Heart1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, -1, -1));
 
         AnswerTextfield.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 0, 24)); // NOI18N
         AnswerTextfield.setHorizontalAlignment(javax.swing.JTextField.CENTER);
