@@ -2,12 +2,14 @@
 package Grade5;
 
 import Main.GradeMenu;
+import javax.swing.ImageIcon;
 
 
 public class GradeFiveStart extends javax.swing.JFrame {
 
   
     public GradeFiveStart() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
     }

@@ -2,10 +2,12 @@
 package Grade5;
 
 import Grade5.GradeFiveStart;
+import javax.swing.ImageIcon;
 
 public class LevelOneMech extends javax.swing.JFrame {
 
     public LevelOneMech() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
     }

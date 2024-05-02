@@ -2,10 +2,12 @@ package Grade5;
 
 import Grade4.LevelTwoMouseDrag;
 import Main.GradeMenu;
+import javax.swing.ImageIcon;
 
 public class GradeFiveMenu extends javax.swing.JFrame {
 
     public GradeFiveMenu() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         setTitle("TechLab Escapade");
         initComponents();
