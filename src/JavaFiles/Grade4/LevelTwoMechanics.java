@@ -38,7 +38,7 @@ public class LevelTwoMechanics extends javax.swing.JFrame {
                 NextButtonMousePressed(evt);
             }
         });
-        getContentPane().add(NextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 510, -1, -1));
+        getContentPane().add(NextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1408, 749, -1, -1));
 
         BackGroundGrade.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BackGroundGrade.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefour_twomechanic.png"))); // NOI18N
@@ -103,6 +103,12 @@ public class LevelTwoMechanics extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(LevelTwoMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 

@@ -1,14 +1,21 @@
 package Grade4;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 public class LevelThreePuzzle extends javax.swing.JFrame {
 
-    String[] images = {"wordpuzzle3.png", "wordpuzzle1.png", "wordpuzzle4.png", "wordpuzzle2.png"};
+    String[] images = {"wordpuzzle2.png", "wordpuzzle4.png", "wordpuzzle1.png", "wordpuzzle3.png"};
     boolean clicked = false;
     String clickedimage;
     int clickedgrid;
+    private Timer timer;
+    private int timeleft = 3;
+    LevelThreeDisplayWord ltdw = new LevelThreeDisplayWord();
+    
     public LevelThreePuzzle() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -17,6 +24,25 @@ public class LevelThreePuzzle extends javax.swing.JFrame {
         grid2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + images[1])));
         grid3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + images[2])));
         grid4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + images[3])));
+        
+        timer = new Timer(1000, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                updateTimer(timeleft);
+            }
+        });
+    }
+    
+    private void updateTimer(int timeleft) {
+        this.timeleft--;
+        if (timeleft < 0) {
+            LevelThreeFillInTheBlanks ltfitb = new LevelThreeFillInTheBlanks();
+            ltfitb.setLocationRelativeTo(null);
+            ltfitb.setResizable(false);
+            ltfitb.setVisible(true);
+            ltdw.dispose();
+            this.timeleft = 3;
+            timer.stop();
+        }
     }
     
     private void WordPuzzlePictures(int clickedgrid, int imagesindex, int selectedindex){
@@ -61,8 +87,14 @@ public class LevelThreePuzzle extends javax.swing.JFrame {
             correct = true;
         else
             correct = false;
-        if(correct)
+        if(correct){
             JOptionPane.showMessageDialog(null, "PUZZLE DONE!");
+            ltdw.setLocationRelativeTo(null);
+            ltdw.setResizable(false);
+            ltdw.setVisible(true);
+            dispose();
+            timer.start();
+        }    
     }
     
     private void ReplacedImage(String selectedimage, int assignedgrid){

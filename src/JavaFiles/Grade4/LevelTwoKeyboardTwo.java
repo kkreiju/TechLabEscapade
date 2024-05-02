@@ -32,7 +32,7 @@ public class LevelTwoKeyboardTwo extends javax.swing.JFrame {
                 NextButtonMousePressed(evt);
             }
         });
-        getContentPane().add(NextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1310, 690, -1, -1));
+        getContentPane().add(NextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1408, 749, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Page41bg.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -81,6 +81,12 @@ public class LevelTwoKeyboardTwo extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(LevelTwoKeyboardTwo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
