@@ -1,11 +1,11 @@
 package Grade4;
 
-import java.awt.Dimension;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class LevelThreePuzzleDraft extends javax.swing.JFrame {
 
-    String[] images = {"wordpuzzle1.png", "wordpuzzle2.png", "wordpuzzle3.png", "wordpuzzle4.png"};
+    String[] images = {"wordpuzzle3.png", "wordpuzzle2.png", "wordpuzzle4.png", "wordpuzzle1.png"};
     boolean clicked = false;
     String clickedimage;
     int clickedgrid;
@@ -13,10 +13,56 @@ public class LevelThreePuzzleDraft extends javax.swing.JFrame {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
+        grid1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + images[0])));
+        grid2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + images[1])));
+        grid3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + images[2])));
+        grid4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + images[3])));
     }
     
-    private void WordPuzzlePictures(String wordpuzzlenumber){
-        
+    private void WordPuzzlePictures(int clickedgrid, int imagesindex, int selectedindex){
+        if(!clicked){
+            clicked = true;
+            if(imagesindex == 0)
+                grid1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/wordpuzzletransparent.png")));
+            else if(imagesindex == 1)
+                grid2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/wordpuzzletransparent.png")));
+            else if(imagesindex == 2)
+                grid3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/wordpuzzletransparent.png")));
+            else
+                grid4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/wordpuzzletransparent.png")));
+            this.clickedimage = images[imagesindex]; //change
+            this.clickedgrid = clickedgrid; //change
+            selectedGrid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + clickedimage)));
+        }
+        else{
+            clicked = false;
+            clickedimage = images[this.clickedgrid - 1];
+            if(selectedindex == 0)
+                grid1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + clickedimage)));
+            else if(selectedindex == 1)
+                grid2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + clickedimage)));
+            else if(selectedindex == 2)
+                grid3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + clickedimage)));
+            else
+                grid4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + clickedimage)));
+
+            selectedGrid.setIcon(null);
+            
+            images[this.clickedgrid - 1] = images[imagesindex]; //change value
+            images[imagesindex] = clickedimage; //change assignment, value
+            ReplacedImage(images[this.clickedgrid - 1], this.clickedgrid);
+        }
+        PuzzleVerifier();
+    }
+    
+    private void PuzzleVerifier(){
+        boolean correct = false;
+        if(images[0] == "wordpuzzle1.png" && images[1] == "wordpuzzle2.png" && images[2] == "wordpuzzle3.png" && images[3] == "wordpuzzle4.png")
+            correct = true;
+        else
+            correct = false;
+        if(correct)
+            JOptionPane.showMessageDialog(null, "PUZZLE DONE!");
     }
     
     private void ReplacedImage(String selectedimage, int assignedgrid){
@@ -117,87 +163,19 @@ public class LevelThreePuzzleDraft extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void grid2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid2MousePressed
-        if(!clicked){
-            clicked = true;
-            grid2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/wordpuzzletransparent.png"))); //change
-            clickedimage = images[1]; //change
-            clickedgrid = 2; //change
-            selectedGrid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + clickedimage)));
-        }
-        else{
-            clicked = false;
-            clickedimage = images[clickedgrid - 1];
-            
-            grid2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + clickedimage))); //change
-            selectedGrid.setIcon(null);
-            
-            images[clickedgrid - 1] = images[1]; //change value
-            images[1] = clickedimage; //change assignment, value
-            ReplacedImage(images[clickedgrid - 1], clickedgrid);
-        }
+        WordPuzzlePictures(2, 1, 1);
     }//GEN-LAST:event_grid2MousePressed
 
     private void grid1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid1MousePressed
-        if(!clicked){
-            clicked = true;
-            grid1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/wordpuzzletransparent.png"))); //change
-            clickedimage = images[0]; //change
-            clickedgrid = 1; //change
-            selectedGrid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + clickedimage)));
-        }
-        else{
-            clicked = false;
-            clickedimage = images[clickedgrid - 1];
-            
-            grid1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + clickedimage))); //change
-            selectedGrid.setIcon(null);
-            
-            images[clickedgrid - 1] = images[0]; //change value
-            images[0] = clickedimage; //change assignment, value
-            ReplacedImage(images[clickedgrid - 1], clickedgrid);
-        }
+        WordPuzzlePictures(1, 0, 0);
     }//GEN-LAST:event_grid1MousePressed
 
     private void grid3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid3MousePressed
-        if(!clicked){
-            clicked = true;
-            grid3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/wordpuzzletransparent.png"))); //change
-            clickedimage = images[2]; //change
-            clickedgrid = 3; //change
-            selectedGrid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + clickedimage)));
-        }
-        else{
-            clicked = false;
-            clickedimage = images[clickedgrid - 1];
-            
-            grid3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + clickedimage))); //change
-            selectedGrid.setIcon(null);
-            
-            images[clickedgrid - 1] = images[2]; //change value
-            images[2] = clickedimage; //change assignment, value
-            ReplacedImage(images[clickedgrid - 1], clickedgrid);
-        }
+        WordPuzzlePictures(3, 2, 2);
     }//GEN-LAST:event_grid3MousePressed
 
     private void grid4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grid4MousePressed
-        if(!clicked){
-            clicked = true;
-            grid4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/wordpuzzletransparent.png"))); //change
-            clickedimage = images[3]; //change
-            clickedgrid = 4; //change
-            selectedGrid.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + clickedimage)));
-        }
-        else{
-            clicked = false;
-            clickedimage = images[clickedgrid - 1];
-            
-            grid4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/" + clickedimage))); //change
-            selectedGrid.setIcon(null);
-            
-            images[clickedgrid - 1] = images[3]; //change value
-            images[3] = clickedimage; //change assignment, value
-            ReplacedImage(images[clickedgrid - 1], clickedgrid);
-        }
+        WordPuzzlePictures(4, 3, 3);
     }//GEN-LAST:event_grid4MousePressed
 
     /**
