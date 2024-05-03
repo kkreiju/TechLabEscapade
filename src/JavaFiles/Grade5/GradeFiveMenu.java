@@ -91,6 +91,9 @@ public class GradeFiveMenu extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 Grade5LevelFourMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Grade5LevelFourMousePressed(evt);
+            }
         });
         getContentPane().add(Grade5LevelFour, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 550, -1, -1));
 
@@ -171,6 +174,14 @@ public class GradeFiveMenu extends javax.swing.JFrame {
         ltm.setVisible(true);
         dispose();
     }//GEN-LAST:event_Grade5LevelTwoMousePressed
+
+    private void Grade5LevelFourMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Grade5LevelFourMousePressed
+        LevelFourMechanics lfm = new LevelFourMechanics();
+        lfm.setLocationRelativeTo(null);
+        lfm.setResizable(false);
+        lfm.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_Grade5LevelFourMousePressed
 
     /**
      * @param args the command line arguments

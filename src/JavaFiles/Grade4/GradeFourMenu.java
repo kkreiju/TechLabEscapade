@@ -163,10 +163,10 @@ public class GradeFourMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_Level3MouseExited
 
     private void Level3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level3MousePressed
-        LevelThreePuzzle haha = new LevelThreePuzzle();
-        haha.setLocationRelativeTo(null);
-        haha.setResizable(false);
-        haha.setVisible(true);
+        LevelThreeMechanics sheesh = new LevelThreeMechanics();
+        sheesh.setLocationRelativeTo(null);
+        sheesh.setResizable(false);
+        sheesh.setVisible(true);
         dispose();
     }//GEN-LAST:event_Level3MousePressed
 
