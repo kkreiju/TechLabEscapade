@@ -14,7 +14,7 @@ public class GradeSixGuess extends javax.swing.JFrame {
     String filename = "src\\Database\\gradesixguess.txt";
     ArrayList<String> data = new ArrayList<String>();
     private Timer timer;
-    private int timeleft = 3;
+    private int timeleft = 5;
     private boolean visible = false;
     GradeSixAnswer gsa = new GradeSixAnswer();
     
@@ -41,21 +41,20 @@ public class GradeSixGuess extends javax.swing.JFrame {
          ois.close();
          fis.close();
       } catch (IOException | ClassNotFoundException e) {
-         JOptionPane.showMessageDialog(null, "gradesixguess.txt not found");
+         JOptionPane.showMessageDialog(null, "db not found");
          e.printStackTrace();
       }
     }
     
     private void updateTimer(int timeleft) {
         this.timeleft--;
-        
         if (timeleft > 0) {
             if(!visible){
                 visible = true;
             }
         } else {
             gsa.dispose();
-            this.timeleft = 3;
+            this.timeleft = 5;
             timer.stop();
             visible = false;
             LoadQuestions();
