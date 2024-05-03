@@ -178,8 +178,7 @@ public class LevelThreeGuess extends javax.swing.JFrame {
         gm.setLocationRelativeTo(null);
         gm.setResizable(false);
         gm.setVisible(true);
-        data.set(0, 1 + "");
-        SaveDatabaseComponents();
+        
         dispose();
     }//GEN-LAST:event_BackButtonMousePressed
 
@@ -208,6 +207,9 @@ public class LevelThreeGuess extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(LevelThreeGuess.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
