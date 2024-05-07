@@ -4,6 +4,8 @@
  */
 package Grade4;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author VJ
@@ -14,6 +16,7 @@ public class LevelFourProceed extends javax.swing.JFrame {
      * Creates new form LevelFourProceed
      */
     public LevelFourProceed() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
     }

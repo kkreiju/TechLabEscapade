@@ -7,6 +7,7 @@ package Grade5;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
 /**
@@ -19,6 +20,7 @@ public class LevelTwoPageOne extends javax.swing.JFrame {
     
     LevelTwoAnswerPageOne ltapo = new LevelTwoAnswerPageOne();
     public LevelTwoPageOne() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
         

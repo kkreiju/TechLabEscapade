@@ -6,6 +6,7 @@ package Grade5;
 
 import Grade4.LevelTwoRoom;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,7 @@ public class LevelOneType extends javax.swing.JFrame {
      * Creates new form LevelOneType
      */
     public LevelOneType() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
     }
@@ -40,26 +42,41 @@ public class LevelOneType extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ExcelText.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        ExcelText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        ExcelText.setBorder(null);
         ExcelText.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         ExcelText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 ExcelTextKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ExcelTextKeyTyped(evt);
+            }
         });
         getContentPane().add(ExcelText, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 530, 240, 50));
 
         PdfText.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        PdfText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        PdfText.setBorder(null);
         PdfText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 PdfTextKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PdfTextKeyTyped(evt);
             }
         });
         getContentPane().add(PdfText, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 530, 240, 50));
 
         MsWordText.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        MsWordText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        MsWordText.setBorder(null);
         MsWordText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 MsWordTextKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                MsWordTextKeyTyped(evt);
             }
         });
         getContentPane().add(MsWordText, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 530, 240, 50));
@@ -72,9 +89,9 @@ public class LevelOneType extends javax.swing.JFrame {
 
     private void MsWordTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MsWordTextKeyPressed
         
-        String answerMS = MsWordText.getText().trim();
-        String answerXL = ExcelText.getText().trim();
-        String answerPDF = PdfText.getText().trim();
+        String answerMS = MsWordText.getText().trim().toUpperCase();
+        String answerXL = ExcelText.getText().trim().toUpperCase();
+        String answerPDF = PdfText.getText().trim().toUpperCase();
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if(answerMS.equals("WORD") && answerXL.equals("EXCEL") && answerPDF.equals("PDF")){
             JOptionPane.showMessageDialog(this, "Correct");
@@ -97,9 +114,9 @@ public class LevelOneType extends javax.swing.JFrame {
 
     private void ExcelTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ExcelTextKeyPressed
         
-        String answerMS = MsWordText.getText().trim();
-        String answerXL = ExcelText.getText().trim();
-        String answerPDF = PdfText.getText().trim();
+        String answerMS = MsWordText.getText().trim().toUpperCase();
+        String answerXL = ExcelText.getText().trim().toUpperCase();
+        String answerPDF = PdfText.getText().trim().toUpperCase();
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if(answerMS.equals("WORD") && answerXL.equals("EXCEL") && answerPDF.equals("PDF")){
             JOptionPane.showMessageDialog(this, "Correct");
@@ -122,9 +139,9 @@ public class LevelOneType extends javax.swing.JFrame {
     }//GEN-LAST:event_ExcelTextKeyPressed
 
     private void PdfTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PdfTextKeyPressed
-        String answerMS = MsWordText.getText().trim();
-        String answerXL = ExcelText.getText().trim();
-        String answerPDF = PdfText.getText().trim();
+        String answerMS = MsWordText.getText().trim().toUpperCase();
+        String answerXL = ExcelText.getText().trim().toUpperCase();
+        String answerPDF = PdfText.getText().trim().toUpperCase();
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
            
         if(answerMS.equals("WORD") && answerXL.equals("EXCEL") && answerPDF.equals("PDF")){
@@ -143,10 +160,27 @@ public class LevelOneType extends javax.swing.JFrame {
         }
             
         }
-        
-        
     }//GEN-LAST:event_PdfTextKeyPressed
 
+    private void MsWordTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MsWordTextKeyTyped
+        TextLimiter(evt, MsWordText, 4);
+    }//GEN-LAST:event_MsWordTextKeyTyped
+
+    private void ExcelTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ExcelTextKeyTyped
+        TextLimiter(evt, ExcelText, 5);
+    }//GEN-LAST:event_ExcelTextKeyTyped
+
+    private void PdfTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PdfTextKeyTyped
+        TextLimiter(evt, PdfText, 3);
+    }//GEN-LAST:event_PdfTextKeyTyped
+
+    private void TextLimiter(java.awt.event.KeyEvent evt,javax.swing.JTextField textfield, int limit){
+        if (textfield.getText().length() >= limit)
+            evt.consume();
+        char c = evt.getKeyChar();
+        if (Character.isLowerCase(c))
+            evt.setKeyChar(Character.toUpperCase(c));
+    }
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

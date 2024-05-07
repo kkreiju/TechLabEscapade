@@ -4,6 +4,8 @@
  */
 package Grade4;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author VJ
@@ -14,6 +16,8 @@ public class LevelThreeMechanics extends javax.swing.JFrame {
      * Creates new form LevelThreeMechanics
      */
     public LevelThreeMechanics() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
+        setUndecorated(true);
         setUndecorated(true);
         initComponents();
     }

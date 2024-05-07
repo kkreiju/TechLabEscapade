@@ -353,6 +353,9 @@ import javax.swing.Timer;
             gfm.setLocationRelativeTo(null);
             gfm.setResizable(false);
             gfm.setVisible(true);
+            timerLOD.stop();
+            timerLODESC.stop();
+            timer.stop();
             dispose();
         }
     }

@@ -5,6 +5,7 @@
 package Grade5;
 
 import java.awt.Point;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,7 +25,8 @@ public class LevelOneDragDrop extends javax.swing.JFrame {
     boolean isFinished = false;
     
     public LevelOneDragDrop() {
-        setUndecorated(true);
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
+        setUndecorated(true);setUndecorated(true);
         initComponents();
         
        

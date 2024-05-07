@@ -5,6 +5,7 @@
 package Grade5;
 
 import Main.GradeMenu;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,6 +17,7 @@ public class LevelTwoMechanics extends javax.swing.JFrame {
      * Creates new form LevelTwoMechanics
      */
     public LevelTwoMechanics() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
     }

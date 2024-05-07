@@ -4,6 +4,8 @@
  */
 package Grade5;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author VJ
@@ -14,6 +16,7 @@ public class LevelTwoPageThreeAnswer extends javax.swing.JFrame {
      * Creates new form LevelTwoPageThreeAnswer
      */
     public LevelTwoPageThreeAnswer() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
     }

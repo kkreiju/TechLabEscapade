@@ -6,6 +6,7 @@ package Grade5;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
 /**
@@ -20,6 +21,7 @@ public class LevelTwoPageTwo extends javax.swing.JFrame {
      * Creates new form LevelTwoPageTwo
      */
     public LevelTwoPageTwo() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
         

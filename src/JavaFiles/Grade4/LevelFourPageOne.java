@@ -4,6 +4,7 @@
  */
 package Grade4;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,6 +17,7 @@ public class LevelFourPageOne extends javax.swing.JFrame {
      * Creates new form LevelFourPageOne
      */
     public LevelFourPageOne() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
     }
