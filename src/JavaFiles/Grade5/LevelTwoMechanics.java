@@ -37,6 +37,12 @@ public class LevelTwoMechanics extends javax.swing.JFrame {
 
         StartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/startbutton.png"))); // NOI18N
         StartButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                StartButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                StartButtonMouseExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 StartButtonMousePressed(evt);
             }
@@ -56,6 +62,14 @@ public class LevelTwoMechanics extends javax.swing.JFrame {
         LTPO.setVisible(true);
         dispose();
     }//GEN-LAST:event_StartButtonMousePressed
+
+    private void StartButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartButtonMouseExited
+        StartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/startbutton.png")));
+    }//GEN-LAST:event_StartButtonMouseExited
+
+    private void StartButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartButtonMouseEntered
+         StartButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/startbuttonhover.png")));
+    }//GEN-LAST:event_StartButtonMouseEntered
 
     /**
      * @param args the command line arguments

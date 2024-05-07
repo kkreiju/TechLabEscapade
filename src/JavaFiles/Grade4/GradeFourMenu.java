@@ -179,7 +179,11 @@ public class GradeFourMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_Level4MouseExited
 
     private void Level4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level4MousePressed
-        JOptionPane.showMessageDialog(null, "WALA PA, PAGHUWAT");
+        LevelFourProceed lfpt = new LevelFourProceed();
+        lfpt.setLocationRelativeTo(null);
+        lfpt.setResizable(false);
+        lfpt.setVisible(true);
+        dispose();
     }//GEN-LAST:event_Level4MousePressed
 
     /**

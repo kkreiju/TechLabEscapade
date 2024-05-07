@@ -1,7 +1,7 @@
 
 package Grade5;
 
-import Grade5.GradeFiveStart;
+import Grade5.LevelOneProceed;
 import javax.swing.ImageIcon;
 
 public class LevelOneMech extends javax.swing.JFrame {
@@ -34,7 +34,7 @@ public class LevelOneMech extends javax.swing.JFrame {
                 NextButtonMousePressed(evt);
             }
         });
-        getContentPane().add(NextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1380, 760, -1, -1));
+        getContentPane().add(NextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1390, 750, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grade5Mech.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -51,7 +51,7 @@ public class LevelOneMech extends javax.swing.JFrame {
     }//GEN-LAST:event_NextButtonMouseExited
 
     private void NextButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMousePressed
-        GradeFiveStart GFV = new GradeFiveStart();
+        LevelOneProceed GFV = new LevelOneProceed();
         GFV.setLocationRelativeTo(null);
         GFV.setResizable(false);
         GFV.setVisible(true);
