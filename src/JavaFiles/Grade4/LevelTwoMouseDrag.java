@@ -4,6 +4,7 @@ import javax.swing.ImageIcon;
 
 public class LevelTwoMouseDrag extends javax.swing.JFrame {
 
+    boolean isPressed = false;
     public LevelTwoMouseDrag() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -62,7 +63,7 @@ public class LevelTwoMouseDrag extends javax.swing.JFrame {
                 NextButtonMousePressed(evt);
             }
         });
-        getContentPane().add(NextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 730, -1, -1));
+        getContentPane().add(NextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, -40, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finalexcelbg.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -71,27 +72,37 @@ public class LevelTwoMouseDrag extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MouseLeftMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MouseLeftMousePressed
+       NextButtonMousePressed(evt);
+       isPressed = true;
        MouseLeft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseLeftCheck.png")));
+       MouseRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseRightWrong.png")));
     }//GEN-LAST:event_MouseLeftMousePressed
 
     private void MouseLeftMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MouseLeftMouseEntered
-        MouseLeft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseLeftHovered.png")));
+        if(!isPressed)
+            MouseLeft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseLeftHovered.png")));
     }//GEN-LAST:event_MouseLeftMouseEntered
 
     private void MouseLeftMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MouseLeftMouseExited
-        MouseLeft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseLeftUnhovered.png")));
+        if(!isPressed)
+            MouseLeft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseLeftUnhovered.png")));
     }//GEN-LAST:event_MouseLeftMouseExited
 
     private void MouseRightMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MouseRightMousePressed
+        NextButtonMousePressed(evt);
+        isPressed = true;
+        MouseLeft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseLeftCheck.png")));
         MouseRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseRightWrong.png")));
     }//GEN-LAST:event_MouseRightMousePressed
 
     private void MouseRightMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MouseRightMouseEntered
-        MouseRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseRightHovered.png")));
+        if(!isPressed)
+            MouseRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseRightHovered.png")));
     }//GEN-LAST:event_MouseRightMouseEntered
 
     private void MouseRightMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MouseRightMouseExited
-         MouseRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseRightUnHoverd.png")));
+        if(!isPressed)
+            MouseRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseRightUnHoverd.png")));
     }//GEN-LAST:event_MouseRightMouseExited
 
     private void NextButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMouseEntered
@@ -103,11 +114,15 @@ public class LevelTwoMouseDrag extends javax.swing.JFrame {
     }//GEN-LAST:event_NextButtonMouseExited
 
     private void NextButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMousePressed
-        LevelTwoRoom LTR = new LevelTwoRoom();
-        LTR.setLocationRelativeTo(null);
-        LTR.setResizable(false);
-        LTR.setVisible(true);
-        dispose();
+        if(!isPressed)
+            NextButton.setLocation(1408, 749);
+        else{
+            LevelTwoRoom LTR = new LevelTwoRoom();
+            LTR.setLocationRelativeTo(null);
+            LTR.setResizable(false);
+            LTR.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_NextButtonMousePressed
 
     /**

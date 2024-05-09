@@ -7,6 +7,7 @@ package Grade5;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 /**
@@ -15,9 +16,7 @@ import javax.swing.Timer;
  */
 public class LevelFourPageTwo extends javax.swing.JFrame {
     private Timer timer;
-    private int timeleft = 10;
-    private Timer timerdelay;
-    private int timedelay = 0;
+    private int timeleft = 4;
     
     LevelFourPageTwoDesc lfptd = new LevelFourPageTwoDesc();
     public LevelFourPageTwo() {
@@ -28,12 +27,6 @@ public class LevelFourPageTwo extends javax.swing.JFrame {
         timer = new Timer(1000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 updateTimer(timeleft);
-            }
-        });
-        
-        timerdelay = new Timer(1000, new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                delayTimer(timedelay);
             }
         });
     }
@@ -98,7 +91,8 @@ public class LevelFourPageTwo extends javax.swing.JFrame {
 
     private void SecondPicPageOneMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SecondPicPageOneMousePressed
         SecondPicPageOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/2ndpage2pwrong.png")));
-        timerdelay.start();
+        JOptionPane.showMessageDialog(null, "INCORRECT");
+        NextPage();
         timer.start();
     }//GEN-LAST:event_SecondPicPageOneMousePressed
 
@@ -112,7 +106,8 @@ public class LevelFourPageTwo extends javax.swing.JFrame {
 
     private void FirstPicPageOneMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FirstPicPageOneMousePressed
         FirstPicPageOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/2ndpage1pcheck.png")));
-        timerdelay.start();
+        JOptionPane.showMessageDialog(null, "CORRECT");
+        NextPage();
         timer.start();
     }//GEN-LAST:event_FirstPicPageOneMousePressed
     
@@ -128,21 +123,15 @@ public class LevelFourPageTwo extends javax.swing.JFrame {
             this.timeleft = 3;
             timer.stop();
         }
-    
     }
     
-    private void delayTimer(int timeleft){
-    this.timedelay++;
-        if(timeleft >= 3){
-            LevelFourPageTwoDesc lfptd = new LevelFourPageTwoDesc();
-            lfptd.setLocationRelativeTo(null);
-            lfptd.setResizable(false);
-            lfptd.setVisible(true);
-            dispose();
-            this.timedelay = 0;
-            timerdelay.stop();
-        }
+    public void NextPage(){
+        lfptd.setLocationRelativeTo(null);
+        lfptd.setResizable(false);
+        lfptd.setVisible(true);
+        dispose();
     }
+    
     /**
      * @param args the command line arguments
      */

@@ -98,7 +98,6 @@ public class LevelTwoPageFour extends javax.swing.JFrame {
     }//GEN-LAST:event_ThumbsUpMouseExited
 
     private void ThumbsDownMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThumbsDownMousePressed
-        LevelTwoAnswerPageFour ltapf = new LevelTwoAnswerPageFour();
         ltapf.setLocationRelativeTo(null);
         ltapf.setResizable(false);
         ltapf.setVisible(true);
@@ -107,7 +106,6 @@ public class LevelTwoPageFour extends javax.swing.JFrame {
     }//GEN-LAST:event_ThumbsDownMousePressed
 
     private void ThumbsUpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThumbsUpMousePressed
-        LevelTwoAnswerPageFour ltapf = new LevelTwoAnswerPageFour();
         ltapf.setLocationRelativeTo(null);
         ltapf.setResizable(false);
         ltapf.setVisible(true);

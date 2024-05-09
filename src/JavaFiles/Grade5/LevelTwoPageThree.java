@@ -97,19 +97,17 @@ public class LevelTwoPageThree extends javax.swing.JFrame {
     }//GEN-LAST:event_ThumbsUpMouseExited
 
     private void ThumbsUpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThumbsUpMousePressed
-        LevelTwoPageThreeAnswer LTPTA = new LevelTwoPageThreeAnswer();
-        LTPTA.setLocationRelativeTo(null);
-        LTPTA.setResizable(false);
-        LTPTA.setVisible(true);
+        ltpta.setLocationRelativeTo(null);
+        ltpta.setResizable(false);
+        ltpta.setVisible(true);
         dispose();
         timer.start();
     }//GEN-LAST:event_ThumbsUpMousePressed
 
     private void ThumbsDownMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThumbsDownMousePressed
-        LevelTwoPageThreeAnswer LTPTA = new LevelTwoPageThreeAnswer();
-        LTPTA.setLocationRelativeTo(null);
-        LTPTA.setResizable(false);
-        LTPTA.setVisible(true);
+        ltpta.setLocationRelativeTo(null);
+        ltpta.setResizable(false);
+        ltpta.setVisible(true);
         dispose();
         timer.start();
     }//GEN-LAST:event_ThumbsDownMousePressed

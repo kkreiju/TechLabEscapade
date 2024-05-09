@@ -99,19 +99,17 @@ public class LevelTwoPageTwo extends javax.swing.JFrame {
     }//GEN-LAST:event_ThumbsUpMouseExited
 
     private void ThumbsUpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThumbsUpMousePressed
-        LevelTwoAnswerPageTwo LTAPT = new LevelTwoAnswerPageTwo();
-        LTAPT.setLocationRelativeTo(null);
-        LTAPT.setResizable(false);
-        LTAPT.setVisible(true);
+        ltapt.setLocationRelativeTo(null);
+        ltapt.setResizable(false);
+        ltapt.setVisible(true);
         dispose();
         timer.start();
     }//GEN-LAST:event_ThumbsUpMousePressed
 
     private void ThumbsDownMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThumbsDownMousePressed
-        LevelTwoAnswerPageTwo LTAPT = new LevelTwoAnswerPageTwo();
-        LTAPT.setLocationRelativeTo(null);
-        LTAPT.setResizable(false);
-        LTAPT.setVisible(true);
+        ltapt.setLocationRelativeTo(null);
+        ltapt.setResizable(false);
+        ltapt.setVisible(true);
         dispose();
         timer.start();
     }//GEN-LAST:event_ThumbsDownMousePressed

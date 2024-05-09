@@ -95,20 +95,17 @@ public class LevelTwoPageOne extends javax.swing.JFrame {
     }//GEN-LAST:event_ThumbsUpMouseExited
 
     private void ThumbsUpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThumbsUpMousePressed
-
-        LevelTwoAnswerPageOne LTAPO = new LevelTwoAnswerPageOne();
-        LTAPO.setLocationRelativeTo(null);
-        LTAPO.setResizable(false);
-        LTAPO.setVisible(true);
+        ltapo.setLocationRelativeTo(null);
+        ltapo.setResizable(false);
+        ltapo.setVisible(true);
         dispose();
         timer.start();
     }//GEN-LAST:event_ThumbsUpMousePressed
 
     private void ThumbsDownMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThumbsDownMousePressed
-        LevelTwoAnswerPageOne LTAPO = new LevelTwoAnswerPageOne();
-        LTAPO.setLocationRelativeTo(null);
-        LTAPO.setResizable(false);
-        LTAPO.setVisible(true);
+        ltapo.setLocationRelativeTo(null);
+        ltapo.setResizable(false);
+        ltapo.setVisible(true);
         dispose();
         timer.start();
     }//GEN-LAST:event_ThumbsDownMousePressed

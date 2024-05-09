@@ -7,6 +7,7 @@ package Grade5;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 
@@ -16,11 +17,8 @@ import javax.swing.Timer;
  * @author VJ
  */
 public class LevelFourPageOne extends javax.swing.JFrame {
-    private int index  = 1;
     private Timer timer;
-    private int timeleft = 10;
-    private Timer timerdelay;
-    private int timedelay = 0;
+    private int timeleft = 4;
     
     LevelFourPageOneDesc lfpod = new LevelFourPageOneDesc();
     public LevelFourPageOne() {
@@ -33,13 +31,6 @@ public class LevelFourPageOne extends javax.swing.JFrame {
                 updateTimer(timeleft);
             }
         });
-        
-        timerdelay = new Timer(1000, new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                delayTimer(timedelay);
-            }
-        });
-        
     }
 
     
@@ -98,7 +89,8 @@ public class LevelFourPageOne extends javax.swing.JFrame {
 
     private void FirstPicPageOneMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FirstPicPageOneMousePressed
         FirstPicPageOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1stpage1pcheck.png")));
-        timerdelay.start();
+        JOptionPane.showMessageDialog(null, "CORRECT");
+        NextPage();
         timer.start();
     }//GEN-LAST:event_FirstPicPageOneMousePressed
 
@@ -112,7 +104,8 @@ public class LevelFourPageOne extends javax.swing.JFrame {
 
     private void SecondPicPageOneMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SecondPicPageOneMousePressed
         SecondPicPageOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1stpage2pwrong.png")));
-        timerdelay.start();
+        JOptionPane.showMessageDialog(null, "INCORRECT");
+        NextPage();
         timer.start();
     }//GEN-LAST:event_SecondPicPageOneMousePressed
 
@@ -127,20 +120,13 @@ public class LevelFourPageOne extends javax.swing.JFrame {
             this.timeleft = 3;
             timer.stop();
         }
-    
     }
     
-    private void delayTimer(int timeleft){
-    this.timedelay++;
-        if(timeleft >= 3){
-            LevelFourPageOneDesc lfpod = new LevelFourPageOneDesc();
-            lfpod.setLocationRelativeTo(null);
-            lfpod.setResizable(false);
-            lfpod.setVisible(true);
-            dispose();
-            this.timedelay = 0;
-            timerdelay.stop();
-        }
+    public void NextPage(){
+        lfpod.setLocationRelativeTo(null);
+        lfpod.setResizable(false);
+        lfpod.setVisible(true);
+        dispose();
     }
     
     

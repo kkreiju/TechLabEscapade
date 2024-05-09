@@ -229,13 +229,13 @@ public class LevelOneDragDrop extends javax.swing.JFrame {
         getContentPane().add(Excel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 300, -1, -1));
 
         FolderThree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pdffolder.png"))); // NOI18N
-        getContentPane().add(FolderThree, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 565, -1, -1));
+        getContentPane().add(FolderThree, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 650, -1, -1));
 
         FolderTwo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/msfolder.png"))); // NOI18N
-        getContentPane().add(FolderTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, -1, -1));
+        getContentPane().add(FolderTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, -1, -1));
 
         FolderOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/excelfolder.png"))); // NOI18N
-        getContentPane().add(FolderOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, -1, -1));
+        getContentPane().add(FolderOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/background.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

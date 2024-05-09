@@ -3,6 +3,7 @@ package Grade4;
 
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class LevelTwoTypeName extends javax.swing.JFrame {
 
@@ -48,12 +49,15 @@ public class LevelTwoTypeName extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AnswerTextfieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AnswerTextfieldKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-        LevelTwoRoom LTR = new LevelTwoRoom();
-        LTR.setLocationRelativeTo(null);
-        LTR.setResizable(false);
-        LTR.setVisible(true);
-        dispose();
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER && !AnswerTextfield.getText().isEmpty()) {
+            LevelTwoRoom LTR = new LevelTwoRoom();
+            LTR.setLocationRelativeTo(null);
+            LTR.setResizable(false);
+            LTR.setVisible(true);
+            dispose();
+        }
+        else if(evt.getKeyCode() == KeyEvent.VK_ENTER && AnswerTextfield.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "PLEASE ENTER YOUR NAME");
         }
     }//GEN-LAST:event_AnswerTextfieldKeyPressed
 
