@@ -1,5 +1,6 @@
 package Grade4;
 
+import Main.Progress;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -19,6 +20,12 @@ import javax.swing.Timer;
     int index;
     int heartindex = 3;
     LevelOneDevice lod = new LevelOneDevice();
+    
+    Progress progress = new Progress();
+    public String saved = "src\\Database\\savedprogress.txt";
+    public ArrayList<String> saveddata = new ArrayList<String>();
+    public String currentprogress = "src\\Database\\currentprogress.txt";
+    public ArrayList<String> currentdata = new ArrayList<String>();
     
     
     public LevelOneGuess() {
@@ -349,6 +356,11 @@ import javax.swing.Timer;
         else{
             worddata.set(0, 1 + "");
             SaveDatabaseComponents();
+            
+            currentdata = progress.ReadProgressDBComponents(currentprogress);
+            currentdata.set(1, currentdata.get(1).substring(0, currentdata.get(1).indexOf(':')) + ": " + true);
+            progress.SaveProgressDBComponents(currentdata, currentprogress);
+            
             GradeFourMenu gfm = new GradeFourMenu();
             gfm.setLocationRelativeTo(null);
             gfm.setResizable(false);

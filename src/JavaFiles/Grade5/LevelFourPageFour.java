@@ -4,8 +4,10 @@
  */
 package Grade5;
 
+import Main.Progress;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
@@ -92,6 +94,16 @@ public class LevelFourPageFour extends javax.swing.JFrame {
     private void FirstPicPageOneMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FirstPicPageOneMousePressed
         FirstPicPageOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4thpage1pcheck.png")));
         JOptionPane.showMessageDialog(null, "CORRECT");
+        
+        String database = "src\\Database\\5.4database.txt";
+        Progress progress = new Progress();
+        ArrayList<String> data = new ArrayList<String>();
+        data = progress.ReadProgressDBComponents(database);
+        int correct = Integer.parseInt(data.get(0));
+        correct++;
+        data.set(0, correct + "");
+        progress.SaveProgressDBComponents(data, database);
+        
         NextPage();
         timer.start();
     }//GEN-LAST:event_FirstPicPageOneMousePressed
@@ -114,6 +126,25 @@ public class LevelFourPageFour extends javax.swing.JFrame {
     private void updateTimer(int timeleft){
     this.timeleft--;
         if (timeleft < 0) {
+            String database = "src\\Database\\5.4database.txt";
+            Progress progress = new Progress();
+            ArrayList<String> data = new ArrayList<String>();
+            data = progress.ReadProgressDBComponents(database);
+            int correct = Integer.parseInt(data.get(0));
+            if(correct == 4){
+                database = "src\\Database\\currentprogress.txt";
+                data = progress.ReadProgressDBComponents(database);
+                data.set(8, data.get(8).substring(0, data.get(8).indexOf(':')) + ": " + true);
+                progress.SaveProgressDBComponents(data, database);
+            }
+            
+            database = "src\\Database\\5.4database.txt";
+            data = progress.ReadProgressDBComponents(database);
+            data.set(0, 0 + "");
+            progress.SaveProgressDBComponents(data, database);
+            
+            System.out.println(data);
+            
             GradeFiveMenu gfm = new GradeFiveMenu();
             gfm.setLocationRelativeTo(null);
             gfm.setResizable(false);

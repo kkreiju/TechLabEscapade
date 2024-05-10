@@ -1,7 +1,9 @@
 
 package Grade4;
 
+import Main.Progress;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -50,6 +52,13 @@ public class LevelTwoTypeName extends javax.swing.JFrame {
 
     private void AnswerTextfieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AnswerTextfieldKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER && !AnswerTextfield.getText().isEmpty()) {
+            String database = "src\\Database\\4.2database.txt";
+            Progress progress = new Progress();
+            ArrayList<String> data = new ArrayList<String>();
+            data = progress.ReadProgressDBComponents(database);
+            data.set(0, "true");
+            progress.SaveProgressDBComponents(data, database);
+            
             LevelTwoRoom LTR = new LevelTwoRoom();
             LTR.setLocationRelativeTo(null);
             LTR.setResizable(false);

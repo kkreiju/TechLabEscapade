@@ -2,19 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+package Grade4;
 
-import Grade5.*;
+import javax.swing.ImageIcon;
 
 /**
  *
- * @author VJ
+ * @author arjay
  */
-public class LevelFourMechanics extends javax.swing.JFrame {
+public class GradeFourMechanic extends javax.swing.JFrame {
 
     /**
-     * Creates new form LevelFourMechanics
+     * Creates new form GradeFourMechanic
      */
-    public LevelFourMechanics() {
+    public GradeFourMechanic() {
+        this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
+        setUndecorated(true);
         initComponents();
     }
 
@@ -33,6 +36,7 @@ public class LevelFourMechanics extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        NextButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         NextButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nextbutton.png"))); // NOI18N
         NextButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -45,9 +49,9 @@ public class LevelFourMechanics extends javax.swing.JFrame {
                 NextButtonMousePressed(evt);
             }
         });
-        getContentPane().add(NextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 550, -1, -1));
+        getContentPane().add(NextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1408, 749, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5levelfourmech.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefour_fourmechanic.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -62,10 +66,10 @@ public class LevelFourMechanics extends javax.swing.JFrame {
     }//GEN-LAST:event_NextButtonMouseExited
 
     private void NextButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMousePressed
-        LevelFourPageOne lfpo = new LevelFourPageOne();
-        lfpo.setLocationRelativeTo(null);
-        lfpo.setResizable(false);
-        lfpo.setVisible(true);
+        LevelFourProceed lfp = new LevelFourProceed();
+        lfp.setLocationRelativeTo(null);
+        lfp.setResizable(false);
+        lfp.setVisible(true);
         dispose();
     }//GEN-LAST:event_NextButtonMousePressed
 
@@ -86,21 +90,20 @@ public class LevelFourMechanics extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LevelFourMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GradeFourMechanic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LevelFourMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GradeFourMechanic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LevelFourMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GradeFourMechanic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LevelFourMechanics.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GradeFourMechanic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LevelFourMechanics().setVisible(true);
+                new GradeFourMechanic().setVisible(true);
             }
         });
     }

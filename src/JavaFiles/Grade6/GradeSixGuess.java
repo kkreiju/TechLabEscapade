@@ -1,6 +1,7 @@
 package Grade6;
 
 import Main.GradeMenu;
+import Main.Progress;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class GradeSixGuess extends javax.swing.JFrame {
     private int timeleft = 5;
     private boolean visible = false;
     GradeSixAnswer gsa = new GradeSixAnswer();
+    int correct = 0;
     
     public GradeSixGuess() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
@@ -99,6 +101,16 @@ public class GradeSixGuess extends javax.swing.JFrame {
         else{
             data.set(0, 1 + "");
             SaveDatabaseComponents();
+            
+            String database = "src\\Database\\currentprogress.txt";
+            Progress progress = new Progress();
+            ArrayList<String> data = new ArrayList<String>();
+            data = progress.ReadProgressDBComponents(database);
+            if(correct == 3){
+                data.set(9, data.get(9).substring(0, data.get(9).indexOf(':')) + ": true");
+                progress.SaveProgressDBComponents(data, database);
+            }
+            
             GradeMenu gm = new GradeMenu();
             gm.setLocationRelativeTo(null);
             gm.setResizable(false);
@@ -169,6 +181,7 @@ public class GradeSixGuess extends javax.swing.JFrame {
         int index = Integer.parseInt(data.get(0));
         if(answer.equals(data.get(index))){
             JOptionPane.showMessageDialog(null, "CORRECT");
+            correct++;
         }
         else{
             JOptionPane.showMessageDialog(null, "INCORRECT");

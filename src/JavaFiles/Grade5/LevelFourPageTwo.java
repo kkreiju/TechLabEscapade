@@ -4,8 +4,10 @@
  */
 package Grade5;
 
+import Main.Progress;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
@@ -107,6 +109,16 @@ public class LevelFourPageTwo extends javax.swing.JFrame {
     private void FirstPicPageOneMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FirstPicPageOneMousePressed
         FirstPicPageOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/2ndpage1pcheck.png")));
         JOptionPane.showMessageDialog(null, "CORRECT");
+        
+        String database = "src\\Database\\5.4database.txt";
+        Progress progress = new Progress();
+        ArrayList<String> data = new ArrayList<String>();
+        data = progress.ReadProgressDBComponents(database);
+        int correct = Integer.parseInt(data.get(0));
+        correct++;
+        data.set(0, correct + "");
+        progress.SaveProgressDBComponents(data, database);
+        
         NextPage();
         timer.start();
     }//GEN-LAST:event_FirstPicPageOneMousePressed

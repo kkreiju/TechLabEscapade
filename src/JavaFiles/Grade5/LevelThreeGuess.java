@@ -1,5 +1,7 @@
 package Grade5;
 
+import Main.Progress;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -7,6 +9,7 @@ public class LevelThreeGuess extends javax.swing.JFrame {
 
     int[] answer = {2, 1, 1};
     int index = 0;
+    int correct = 0;
     public LevelThreeGuess() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -27,8 +30,10 @@ public class LevelThreeGuess extends javax.swing.JFrame {
             choice2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefive_choice2.3clicked.png")));
         }
         
-        if(choice == answer[index])
+        if(choice == answer[index]){
             JOptionPane.showMessageDialog(null, "CORRECT");
+            correct++;
+        }
         else
             JOptionPane.showMessageDialog(null, "INCORRECT");
         index++;
@@ -52,6 +57,16 @@ public class LevelThreeGuess extends javax.swing.JFrame {
             choice2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefive_choice2.3.png")));
         }
         else if(index == 3){
+            if(correct == 3){
+                String database = "src\\Database\\currentprogress.txt";
+                Progress progress = new Progress();
+                ArrayList<String> data = new ArrayList<String>();
+                data = progress.ReadProgressDBComponents(database);
+                data.set(7, data.get(7).substring(0, data.get(7).indexOf(':')) + ": " + true);
+                progress.SaveProgressDBComponents(data, database);
+                System.out.println(data);
+            }
+            
             GradeFiveMenu gfm = new GradeFiveMenu();
             gfm.setLocationRelativeTo(null);
             gfm.setResizable(false);

@@ -4,9 +4,11 @@
  */
 package Grade5;
 
+import Main.Progress;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
@@ -103,6 +105,15 @@ public class LevelTwoPageOne extends javax.swing.JFrame {
     }//GEN-LAST:event_ThumbsUpMousePressed
 
     private void ThumbsDownMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThumbsDownMousePressed
+        String database = "src\\Database\\5.2database.txt";
+        Progress progress = new Progress();
+        ArrayList<String> data = new ArrayList<String>();
+        data = progress.ReadProgressDBComponents(database);
+        int correct = Integer.parseInt(data.get(0));
+        correct++;
+        data.set(0, correct + "");
+        progress.SaveProgressDBComponents(data, database);
+        
         ltapo.setLocationRelativeTo(null);
         ltapo.setResizable(false);
         ltapo.setVisible(true);

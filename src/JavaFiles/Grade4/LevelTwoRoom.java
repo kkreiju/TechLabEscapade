@@ -1,7 +1,9 @@
 package Grade4;
 
+import Main.Progress;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
@@ -14,10 +16,20 @@ public class LevelTwoRoom extends javax.swing.JFrame {
     private int index = 1;
     LevelTwoDisplay ltd = new LevelTwoDisplay();
     
+    String database = "src\\Database\\4.2database.txt";
+    Progress progress = new Progress();
+    public String saved = "src\\Database\\savedprogress.txt";
+    public String currentprogress = "src\\Database\\currentprogress.txt";
+    public ArrayList<String> currentdata = new ArrayList<String>();
+    ArrayList<String> data = new ArrayList<String>();
+    
+    boolean complete = false;
+    
     public LevelTwoRoom() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
+        CheckIfCompleted();
         
         mousetimer = new Timer(1000, new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -164,6 +176,13 @@ public class LevelTwoRoom extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButtonMouseExited
 
     private void BackButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackButtonMousePressed
+        data = progress.ReadProgressDBComponents(database);
+        if(!complete){
+            for(int i = 0 ; i < data.size(); i++){
+                data.set(i, "false");
+            }
+            progress.SaveProgressDBComponents(data, database);
+        }  
         GradeFourMenu gfm = new GradeFourMenu();
         gfm.setLocationRelativeTo(null);
         gfm.setResizable(false);
@@ -185,12 +204,42 @@ public class LevelTwoRoom extends javax.swing.JFrame {
 
     private void CPULabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CPULabelMousePressed
         DisplayCPU();
+        data = progress.ReadProgressDBComponents(database);
+        data.set(1, "true");
+        progress.SaveProgressDBComponents(data, database);
+        System.out.println("LEVEL TWO ROOM: " + data);
+        CheckIfCompleted();
     }//GEN-LAST:event_CPULabelMousePressed
 
     private void MonitorLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MonitorLabelMousePressed
         DisplayMonitor();
+        data = progress.ReadProgressDBComponents(database);
+        data.set(2, "true");
+        progress.SaveProgressDBComponents(data, database);
+        System.out.println("LEVEL TWO ROOM: " + data);
+        CheckIfCompleted();
     }//GEN-LAST:event_MonitorLabelMousePressed
 
+    private void CheckIfCompleted(){
+        data = progress.ReadProgressDBComponents(database);
+        System.out.println("LEVEL TWO ROOM: " + data);
+        for(int i = 0 ; i < data.size(); i++){
+            if(data.get(i).equals("true")){
+                complete = true;
+            }
+            else{
+                complete = false;
+                break;
+            }
+        }
+        
+        if(complete){
+            currentdata = progress.ReadProgressDBComponents(currentprogress);
+            currentdata.set(2, currentdata.get(2).substring(0, currentdata.get(2).indexOf(':')) + ": " + true);
+            progress.SaveProgressDBComponents(currentdata, currentprogress);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */

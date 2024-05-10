@@ -1,5 +1,7 @@
 package Grade4;
 
+import Main.Progress;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 public class LevelTwoMouseDrag extends javax.swing.JFrame {
@@ -117,6 +119,13 @@ public class LevelTwoMouseDrag extends javax.swing.JFrame {
         if(!isPressed)
             NextButton.setLocation(1408, 749);
         else{
+            String database = "src\\Database\\4.2database.txt";
+            Progress progress = new Progress();
+            ArrayList<String> data = new ArrayList<String>();
+            data = progress.ReadProgressDBComponents(database);
+            data.set(3, "true");
+            progress.SaveProgressDBComponents(data, database);
+            
             LevelTwoRoom LTR = new LevelTwoRoom();
             LTR.setLocationRelativeTo(null);
             LTR.setResizable(false);

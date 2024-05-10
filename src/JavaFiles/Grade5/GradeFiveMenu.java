@@ -2,15 +2,22 @@ package Grade5;
 
 import Grade4.LevelTwoMouseDrag;
 import Main.GradeMenu;
+import Main.Progress;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 public class GradeFiveMenu extends javax.swing.JFrame {
 
+    Progress progress = new Progress();
+    ArrayList<String> data = new ArrayList<String>();
+    String database = "src\\Database\\currentprogress.txt";
+    
     public GradeFiveMenu() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         setTitle("TechLab Escapade");
         initComponents();
+        CheckIfDone();
     }
 
     @SuppressWarnings("unchecked")
@@ -128,35 +135,83 @@ public class GradeFiveMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_Grade5LevelOneMousePressed
 
     private void Grade5LevelOneMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Grade5LevelOneMouseEntered
-        Grade5LevelOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grade5LevelOneHover.png")));
+        data = progress.ReadProgressDBComponents(database);
+        
+        if(isTrue(data, 5)){
+            Grade5LevelOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5.1completehovered.png")));
+        } 
+        else
+            Grade5LevelOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grade5LevelOneHover.png")));
     }//GEN-LAST:event_Grade5LevelOneMouseEntered
 
     private void Grade5LevelOneMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Grade5LevelOneMouseExited
-        Grade5LevelOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grade5LevelOne.png")));
+        data = progress.ReadProgressDBComponents(database);
+        
+        if(isTrue(data, 5)){
+            Grade5LevelOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5.1complete.png")));
+        } 
+        else
+            Grade5LevelOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grade5LevelOne.png")));
     }//GEN-LAST:event_Grade5LevelOneMouseExited
 
     private void Grade5LevelTwoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Grade5LevelTwoMouseEntered
-        Grade5LevelTwo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grade5LevelTwoHover.png")));
+        data = progress.ReadProgressDBComponents(database);
+        
+        if(isTrue(data, 6)){
+            Grade5LevelTwo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5.2completehovered.png")));
+        } 
+        else
+            Grade5LevelTwo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grade5LevelTwoHover.png")));
     }//GEN-LAST:event_Grade5LevelTwoMouseEntered
 
     private void Grade5LevelTwoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Grade5LevelTwoMouseExited
-        Grade5LevelTwo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grade5LevelTwo.png")));
+        data = progress.ReadProgressDBComponents(database);
+        
+        if(isTrue(data, 6)){
+            Grade5LevelTwo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5.2complete.png")));
+        } 
+        else
+            Grade5LevelTwo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grade5LevelTwo.png")));
     }//GEN-LAST:event_Grade5LevelTwoMouseExited
 
     private void Grade5LevelThreeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Grade5LevelThreeMouseEntered
-        Grade5LevelThree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grade5LevelThreeHover.png")));
+        data = progress.ReadProgressDBComponents(database);
+        
+        if(isTrue(data, 7)){
+            Grade5LevelThree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5.3completehovered.png")));
+        } 
+        else
+            Grade5LevelThree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grade5LevelThreeHover.png")));
     }//GEN-LAST:event_Grade5LevelThreeMouseEntered
 
     private void Grade5LevelThreeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Grade5LevelThreeMouseExited
-        Grade5LevelThree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grade5LevelThree.png")));
+        data = progress.ReadProgressDBComponents(database);
+        
+        if(isTrue(data, 7)){
+            Grade5LevelThree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5.3complete.png")));
+        } 
+        else
+            Grade5LevelThree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grade5LevelThree.png")));
     }//GEN-LAST:event_Grade5LevelThreeMouseExited
 
     private void Grade5LevelFourMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Grade5LevelFourMouseEntered
-        Grade5LevelFour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grade5LevelFourHover.png")));
+        data = progress.ReadProgressDBComponents(database);
+        
+        if(isTrue(data, 8)){
+            Grade5LevelFour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5.4completehovered.png")));
+        } 
+        else
+            Grade5LevelFour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grade5LevelFourHover.png")));
     }//GEN-LAST:event_Grade5LevelFourMouseEntered
 
     private void Grade5LevelFourMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Grade5LevelFourMouseExited
-        Grade5LevelFour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grade5LevelFour.png")));
+        data = progress.ReadProgressDBComponents(database);
+        
+        if(isTrue(data, 8)){
+            Grade5LevelFour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5.4complete.png")));
+        } 
+        else
+            Grade5LevelFour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Grade5LevelFour.png")));
     }//GEN-LAST:event_Grade5LevelFourMouseExited
 
     private void Grade5LevelThreeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Grade5LevelThreeMousePressed
@@ -183,6 +238,30 @@ public class GradeFiveMenu extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_Grade5LevelFourMousePressed
 
+    private void CheckIfDone(){
+        data = progress.ReadProgressDBComponents(database);
+        
+        if(data.get(5).substring(data.get(5).indexOf(' ') + 1, data.get(5).length()).equals("true")){
+            Grade5LevelOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5.1complete.png")));
+        }
+        if(data.get(6).substring(data.get(6).indexOf(' ') + 1, data.get(6).length()).equals("true")){
+            Grade5LevelTwo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5.2complete.png")));
+        }
+        if(data.get(7).substring(data.get(7).indexOf(' ') + 1, data.get(7).length()).equals("true")){
+            Grade5LevelThree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5.3complete.png")));
+        }
+        if(data.get(8).substring(data.get(8).indexOf(' ') + 1, data.get(8).length()).equals("true")){
+            Grade5LevelFour.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5.4complete.png")));
+        }
+    }
+    
+    private boolean isTrue(ArrayList<String> booleandata, int index){
+        boolean istrue = false;
+        if(booleandata.get(index).substring(booleandata.get(index).indexOf(' ') + 1, booleandata.get(index).length()).equals("true"))
+            istrue = true;
+        return istrue;
+    }
+    
     /**
      * @param args the command line arguments
      */

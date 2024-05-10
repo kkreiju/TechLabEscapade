@@ -1,5 +1,6 @@
 package Grade4;
 
+import Main.Progress;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import java.io.*;
@@ -10,6 +11,8 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
     String filename = "src\\Database\\gradefour_threefillintheblanksdb.txt";
     ArrayList<String> data = new ArrayList<String>();
     boolean initialization = false;
+    
+    int correct = 0;
     
     public LevelThreeFillInTheBlanks() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
@@ -30,7 +33,7 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
     
     public void TextFieldPositioner(){
         int index = Integer.parseInt(data.get(0));
-        int y = 730;
+        int y = 720;
         textfield1.setText(null);
         textfield2.setText(null);
         textfield3.setText(null);
@@ -38,28 +41,28 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
         textfield5.setText(null);
         textfield6.setText(null);
         if(index == 1){
-            textfield1.setLocation(471, y);
-            textfield2.setLocation(590, y);
-            textfield3.setLocation(740, y);
-            textfield4.setLocation(853, y);
-            textfield5.setLocation(965, y);
-            textfield6.setLocation(1076, y);
+            textfield1.setLocation(510, y);
+            textfield2.setLocation(610, y);
+            textfield3.setLocation(750, y);
+            textfield4.setLocation(843, y);
+            textfield5.setLocation(940, y);
+            textfield6.setLocation(1040, y);
         }
         else if(index == 2){
-            textfield1.setLocation(425, y);
-            textfield2.setLocation(500, y);
-            textfield3.setLocation(658, y);
-            textfield4.setLocation(750, y);
-            textfield5.setLocation(943, y);
-            textfield6.setLocation(990, y);
+            textfield1.setLocation(418, y + 7);
+            textfield2.setLocation(498, y + 7);
+            textfield3.setLocation(672, y + 7);
+            textfield4.setLocation(766, y + 7);
+            textfield5.setLocation(946, y + 7);
+            textfield6.setLocation(994, y + 7);
         }
         else if(index == 3){
-            textfield1.setLocation(488, y);
-            textfield2.setLocation(600, y);
-            textfield3.setLocation(657, y);
-            textfield4.setLocation(768, y);
-            textfield5.setLocation(956, y);
-            textfield6.setLocation(1120, y);
+            textfield1.setLocation(460, y + 5);
+            textfield2.setLocation(560, y + 5);
+            textfield3.setLocation(615, y + 5);
+            textfield4.setLocation(730, y + 5);
+            textfield5.setLocation(930, y + 5);
+            textfield6.setLocation(1050, y + 5);
         }
         else if(index == 4){
             textfield1.setLocation(480, y);
@@ -116,6 +119,17 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
         else if(index == 7)
             background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefour_threefillintheblanks7.png")));
         else{
+            String database = "src\\Database\\currentprogress.txt";
+            Progress progress = new Progress();
+            ArrayList<String> data = new ArrayList<String>();
+            data = progress.ReadProgressDBComponents(database);
+            if(correct == 7){
+                data.set(3, data.get(3).substring(0, data.get(3).indexOf(':')) + ": " + true);
+                progress.SaveProgressDBComponents(data, database);
+            }
+            
+            System.out.println(data);
+            
             GradeFourMenu gm = new GradeFourMenu();
             gm.setLocationRelativeTo(null);
             gm.setResizable(false);
@@ -132,6 +146,7 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
                 data.set(0, (index + 1) + "");
                 SaveDatabaseComponents();
                 JOptionPane.showMessageDialog(null, "CORRECT");
+                correct++;
             }
             else{
                 JOptionPane.showMessageDialog(null, "INCORRECT");
@@ -142,16 +157,18 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
                 data.set(0, (index + 1) + "");
                 SaveDatabaseComponents();
                 JOptionPane.showMessageDialog(null, "CORRECT");
+                correct++;
             }
             else{
                 JOptionPane.showMessageDialog(null, "INCORRECT");
             }
         }
         else if(index == 3){
-            if(textfield1.getText().equals("O") && textfield2.getText().equals("U") && textfield3.getText().equals("M") && textfield4.getText().equals("N") && textfield5.getText().equals("I") && textfield6.getText().equals("E")){
+            if(textfield1.getText().equals("O") && textfield2.getText().equals("U") && textfield3.getText().equals("M") && textfield4.getText().equals("N") && textfield5.getText().equals("I") && textfield6.getText().equals("L")){
                 data.set(0, (index + 1) + "");
                 SaveDatabaseComponents();
                 JOptionPane.showMessageDialog(null, "CORRECT");
+                correct++;
             }
             else{
                 JOptionPane.showMessageDialog(null, "INCORRECT");
@@ -162,6 +179,7 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
                 data.set(0, (index + 1) + "");
                 SaveDatabaseComponents();
                 JOptionPane.showMessageDialog(null, "CORRECT");
+                correct++;
             }
             else{
                 JOptionPane.showMessageDialog(null, "INCORRECT");
@@ -172,6 +190,7 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
                 data.set(0, (index + 1) + "");
                 SaveDatabaseComponents();
                 JOptionPane.showMessageDialog(null, "CORRECT");
+                correct++;
             }
             else{
                 JOptionPane.showMessageDialog(null, "INCORRECT");
@@ -182,6 +201,7 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
                 data.set(0, (index + 1) + "");
                 SaveDatabaseComponents();
                 JOptionPane.showMessageDialog(null, "CORRECT");
+                correct++;
             }
             else{
                 JOptionPane.showMessageDialog(null, "INCORRECT");
@@ -192,6 +212,7 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
                 data.set(0, (index + 1) + "");
                 SaveDatabaseComponents();
                 JOptionPane.showMessageDialog(null, "CORRECT");
+                correct++;
             }
             else{
                 JOptionPane.showMessageDialog(null, "INCORRECT");
@@ -279,7 +300,7 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
                 textfield6KeyTyped(evt);
             }
         });
-        getContentPane().add(textfield6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 820, 50, 50));
+        getContentPane().add(textfield6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 720, 50, 50));
 
         textfield5.setFont(new java.awt.Font("Kozuka Gothic Pr6N H", 0, 48)); // NOI18N
         textfield5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -289,7 +310,7 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
                 textfield5KeyTyped(evt);
             }
         });
-        getContentPane().add(textfield5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 810, 50, 50));
+        getContentPane().add(textfield5, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 720, 50, 50));
 
         textfield4.setFont(new java.awt.Font("Kozuka Gothic Pr6N H", 0, 48)); // NOI18N
         textfield4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -299,7 +320,7 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
                 textfield4KeyTyped(evt);
             }
         });
-        getContentPane().add(textfield4, new org.netbeans.lib.awtextra.AbsoluteConstraints(982, 720, 50, 50));
+        getContentPane().add(textfield4, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 720, 50, 50));
 
         textfield3.setFont(new java.awt.Font("Kozuka Gothic Pr6N H", 0, 48)); // NOI18N
         textfield3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -309,7 +330,7 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
                 textfield3KeyTyped(evt);
             }
         });
-        getContentPane().add(textfield3, new org.netbeans.lib.awtextra.AbsoluteConstraints(923, 720, 50, 50));
+        getContentPane().add(textfield3, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 720, 50, 50));
 
         textfield2.setFont(new java.awt.Font("Kozuka Gothic Pr6N H", 0, 48)); // NOI18N
         textfield2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -319,7 +340,7 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
                 textfield2KeyTyped(evt);
             }
         });
-        getContentPane().add(textfield2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 720, 50, 50));
+        getContentPane().add(textfield2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 720, 50, 50));
 
         textfield1.setFont(new java.awt.Font("Kozuka Gothic Pr6N H", 0, 48)); // NOI18N
         textfield1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -334,9 +355,9 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
                 textfield1KeyTyped(evt);
             }
         });
-        getContentPane().add(textfield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(623, 720, 50, 50));
+        getContentPane().add(textfield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 727, 50, 50));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefour_threefillintheblanks6.png"))); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefour_threefillintheblanks1.png"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

@@ -1,14 +1,21 @@
 package Grade4;
 import Main.GradeMenu;
+import Main.Progress;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class GradeFourMenu extends javax.swing.JFrame {
 
+    Progress progress = new Progress();
+    ArrayList<String> data = new ArrayList<String>();
+    String database = "src\\Database\\currentprogress.txt";
+    
     public GradeFourMenu() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
+        CheckIfDone();
     }
 
     @SuppressWarnings("unchecked")
@@ -123,11 +130,22 @@ public class GradeFourMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButtonMouseExited
 
     private void Level1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level1MouseEntered
-        Level1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.1hover.png")));
+        data = progress.ReadProgressDBComponents(database);
+        
+        if(isTrue(data, 1)){
+            Level1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.1completehovered.png")));
+        } 
+        else
+            Level1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.1hover.png")));
     }//GEN-LAST:event_Level1MouseEntered
 
     private void Level1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level1MouseExited
-        Level1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.1.png")));
+        data = progress.ReadProgressDBComponents(database);
+        
+        if(isTrue(data, 1))
+            Level1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.1complete.png")));
+        else
+            Level1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.1.png")));
     }//GEN-LAST:event_Level1MouseExited
 
     private void Level1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level1MousePressed
@@ -139,11 +157,23 @@ public class GradeFourMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_Level1MousePressed
 
     private void Level2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level2MouseEntered
-        Level2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.2hover.png")));
+        data = progress.ReadProgressDBComponents(database);
+        
+        if(isTrue(data, 2)){
+            Level2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.2completehovered.png")));
+        } 
+        else
+            Level2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.2hover.png")));
     }//GEN-LAST:event_Level2MouseEntered
 
     private void Level2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level2MouseExited
-        Level2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.2.png")));
+        data = progress.ReadProgressDBComponents(database);
+        
+        if(isTrue(data, 2)){
+            Level2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.2complete.png")));
+        } 
+        else
+            Level2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.2.png")));
     }//GEN-LAST:event_Level2MouseExited
 
     private void Level2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level2MousePressed
@@ -155,11 +185,23 @@ public class GradeFourMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_Level2MousePressed
 
     private void Level3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level3MouseEntered
-        Level3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.3hover.png")));
+        data = progress.ReadProgressDBComponents(database);
+        
+        if(isTrue(data, 3)){
+            Level3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.3completehovered.png")));
+        } 
+        else
+            Level3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.3hover.png")));
     }//GEN-LAST:event_Level3MouseEntered
 
     private void Level3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level3MouseExited
-        Level3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.3.png")));
+        data = progress.ReadProgressDBComponents(database);
+        
+        if(isTrue(data, 3)){
+            Level3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.3complete.png")));
+        } 
+        else
+            Level3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.3.png")));
     }//GEN-LAST:event_Level3MouseExited
 
     private void Level3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level3MousePressed
@@ -171,21 +213,56 @@ public class GradeFourMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_Level3MousePressed
 
     private void Level4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level4MouseEntered
-        Level4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.4hover.png")));
+        data = progress.ReadProgressDBComponents(database);
+        
+        if(isTrue(data, 4)){
+            Level4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.4completehovered.png")));
+        } 
+        else
+            Level4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.4hover.png")));
     }//GEN-LAST:event_Level4MouseEntered
 
     private void Level4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level4MouseExited
-        Level4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.4.png")));
+        data = progress.ReadProgressDBComponents(database);
+        
+        if(isTrue(data, 4)){
+            Level4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.4complete.png")));
+        } 
+        else
+            Level4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.4.png")));
     }//GEN-LAST:event_Level4MouseExited
 
     private void Level4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level4MousePressed
-        LevelFourProceed lfpt = new LevelFourProceed();
-        lfpt.setLocationRelativeTo(null);
-        lfpt.setResizable(false);
-        lfpt.setVisible(true);
+        GradeFourMechanic gfm = new GradeFourMechanic();
+        gfm.setLocationRelativeTo(null);
+        gfm.setResizable(false);
+        gfm.setVisible(true);
         dispose();
     }//GEN-LAST:event_Level4MousePressed
 
+    private void CheckIfDone(){
+        data = progress.ReadProgressDBComponents(database);
+        
+        if(data.get(1).substring(data.get(1).indexOf(' ') + 1, data.get(1).length()).equals("true")){
+            Level1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.1complete.png")));
+        }
+        if(data.get(2).substring(data.get(2).indexOf(' ') + 1, data.get(2).length()).equals("true")){
+            Level2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.2complete.png")));
+        }
+        if(data.get(3).substring(data.get(3).indexOf(' ') + 1, data.get(3).length()).equals("true")){
+            Level3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.3complete.png")));
+        }
+        if(data.get(4).substring(data.get(4).indexOf(' ') + 1, data.get(4).length()).equals("true")){
+            Level4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/4.4complete.png")));
+        }
+    }
+    
+    private boolean isTrue(ArrayList<String> booleandata, int index){
+        boolean istrue = false;
+        if(booleandata.get(index).substring(booleandata.get(index).indexOf(' ') + 1, booleandata.get(index).length()).equals("true"))
+            istrue = true;
+        return istrue;
+    }
     /**
      * @param args the command line arguments
      */

@@ -5,7 +5,9 @@
 package Grade5;
 
 import Grade4.LevelTwoRoom;
+import Main.Progress;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -94,12 +96,19 @@ public class LevelOneType extends javax.swing.JFrame {
         String answerPDF = PdfText.getText().trim().toUpperCase();
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if(answerMS.equals("WORD") && answerXL.equals("EXCEL") && answerPDF.equals("PDF")){
-            JOptionPane.showMessageDialog(this, "Correct");
-            GradeFiveMenu GFV = new GradeFiveMenu();
-            GFV.setLocationRelativeTo(null);
-            GFV.setResizable(false);
-            GFV.setVisible(true);
-            dispose();
+                String database = "src\\Database\\currentprogress.txt";
+                Progress progress = new Progress();
+                ArrayList<String> data = new ArrayList<String>();
+                data = progress.ReadProgressDBComponents(database);
+                data.set(5, data.get(5).substring(0, data.get(5).indexOf(':')) + ": " + true);
+                progress.SaveProgressDBComponents(data, database);
+                
+                JOptionPane.showMessageDialog(this, "Correct");
+                GradeFiveMenu GFV = new GradeFiveMenu();
+                GFV.setLocationRelativeTo(null);
+                GFV.setResizable(false);
+                GFV.setVisible(true);
+                dispose();
             }
             else if(answerMS.isEmpty() || answerXL.isEmpty() || answerPDF.isEmpty()){
             JOptionPane.showMessageDialog(this, "Fill in the Blanks");
@@ -119,6 +128,13 @@ public class LevelOneType extends javax.swing.JFrame {
         String answerPDF = PdfText.getText().trim().toUpperCase();
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if(answerMS.equals("WORD") && answerXL.equals("EXCEL") && answerPDF.equals("PDF")){
+            String database = "src\\Database\\currentprogress.txt";
+            Progress progress = new Progress();
+            ArrayList<String> data = new ArrayList<String>();
+            data = progress.ReadProgressDBComponents(database);
+            data.set(5, data.get(5).substring(0, data.get(5).indexOf(':')) + ": " + true);
+            progress.SaveProgressDBComponents(data, database);
+                
             JOptionPane.showMessageDialog(this, "Correct");
             GradeFiveMenu GFV = new GradeFiveMenu();
             GFV.setLocationRelativeTo(null);
@@ -145,6 +161,13 @@ public class LevelOneType extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
            
         if(answerMS.equals("WORD") && answerXL.equals("EXCEL") && answerPDF.equals("PDF")){
+        String database = "src\\Database\\currentprogress.txt";
+        Progress progress = new Progress();
+        ArrayList<String> data = new ArrayList<String>();
+        data = progress.ReadProgressDBComponents(database);
+        data.set(5, data.get(5).substring(0, data.get(5).indexOf(':')) + ": " + true);
+        progress.SaveProgressDBComponents(data, database);
+            
         JOptionPane.showMessageDialog(this, "Correct");
         GradeFiveMenu GFV = new GradeFiveMenu();
         GFV.setLocationRelativeTo(null);

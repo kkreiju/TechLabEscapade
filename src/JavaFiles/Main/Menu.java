@@ -1,12 +1,21 @@
 package Main;
 
-import Grade4.GradeFourMenu;
 import javax.swing.ImageIcon;
+import java.io.*;
+import java.util.*;
+import javax.swing.JOptionPane;
 
 public class Menu extends javax.swing.JFrame {
 
+    Progress progress = new Progress();
+    public String saved = "src\\Database\\savedprogress.txt";
+    public ArrayList<String> saveddata = new ArrayList<String>();
+    public String currentprogress = "src\\Database\\currentprogress.txt";
+    public ArrayList<String> currentdata = new ArrayList<String>();
+    
     public Menu() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
+        LoadSavedProgressToCurrent();
         setUndecorated(true);
         initComponents();
     }
@@ -15,6 +24,10 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         ExitButton = new javax.swing.JLabel();
         LogoLabel = new javax.swing.JLabel();
         SaveButton = new javax.swing.JLabel();
@@ -27,6 +40,38 @@ public class Menu extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(1600, 900));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setText("progress arraylist");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 640, -1, -1));
+
+        jButton2.setText("saved arraylist");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 600, -1, -1));
+
+        jButton3.setText("reset all to false");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 690, -1, -1));
+
+        jButton4.setText("set 4 5 to true");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 740, -1, -1));
 
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exitbutton.png"))); // NOI18N
         ExitButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -52,6 +97,9 @@ public class Menu extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 SaveButtonMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                SaveButtonMousePressed(evt);
             }
         });
         getContentPane().add(SaveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(615, 612, -1, -1));
@@ -112,6 +160,87 @@ public class Menu extends javax.swing.JFrame {
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exitbutton.png")));
     }//GEN-LAST:event_ExitButtonMouseExited
 
+    private void SaveButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveButtonMousePressed
+        try{
+            SaveCurrentProgress();
+            JOptionPane.showMessageDialog(null, "Saved.");
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_SaveButtonMousePressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Progress prog = new Progress();
+        ArrayList<String> test = new ArrayList<String>();
+        test = prog.ReadProgressDBComponents(currentprogress);
+        System.out.println("Read: " + currentprogress + ": "+ test);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Progress prog = new Progress();
+        ArrayList<String> test = new ArrayList<String>();
+        test = prog.ReadProgressDBComponents(saved);
+        System.out.println("Read: " + saved + ": "+ test);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Progress prog = new Progress();
+        ArrayList<String> test = new ArrayList<String>();
+        test = prog.ReadProgressDBComponents(saved);
+        String settofalse = ": false";
+        
+        for(int i = 1 ; i < test.size(); i++){
+            test.set(i, test.get(i).substring(0, test.get(i).indexOf(':')) + settofalse);
+        }
+        
+        System.out.println(test);
+        prog.SaveProgressDBComponents(test, saved);
+        
+        System.out.println("Please Restart.");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Progress prog = new Progress();
+        ArrayList<String> test = new ArrayList<String>();
+        test = prog.ReadProgressDBComponents(saved);
+        String settotrue = ": true";
+        
+        for(int i = 1 ; i < test.size() - 1; i++){
+            test.set(i, test.get(i).substring(0, test.get(i).indexOf(':')) + settotrue);
+        }
+        
+        System.out.println(test);
+        prog.SaveProgressDBComponents(test, saved);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void LoadSavedProgressToCurrent(){
+        saveddata = progress.ReadProgressDBComponents(saved);
+        if(saveddata.get(0).equals("false")){
+            saveddata.set(0, "true");
+            progress.SaveProgressDBComponents(saveddata, currentprogress);
+            progress.SaveProgressDBComponents(saveddata, saved);
+            System.out.println("Application initialized.");
+        }
+        else{
+            System.out.println("Application already initialized.");
+        }
+    }
+    
+    private void SaveCurrentProgress(){
+        try {
+            FileInputStream fis = new FileInputStream(currentprogress);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            currentdata = (ArrayList<String>) ois.readObject();
+            ois.close();
+            fis.close();
+        } catch (IOException | ClassNotFoundException e) {
+           e.printStackTrace();
+        }
+        progress.SaveProgressDBComponents(currentdata, saved);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -152,6 +281,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel LogoLabel;
     private javax.swing.JLabel PlayButton;
     private javax.swing.JLabel SaveButton;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

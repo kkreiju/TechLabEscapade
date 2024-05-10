@@ -3,14 +3,23 @@ package Main;
 import Grade4.GradeFourMenu;
 import Grade5.GradeFiveMenu;
 import Grade6.GradeSixMechanics;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 public class GradeMenu extends javax.swing.JFrame {
 
+    Progress progress = new Progress();
+    ArrayList<String> data = new ArrayList<String>();
+    String database = "src\\Database\\currentprogress.txt";
+    
+    boolean gradefour = false, gradefive = false, gradesix = false;
+    
     public GradeMenu() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
         initComponents();
+        CheckIfDone();
     }
 
     @SuppressWarnings("unchecked")
@@ -111,11 +120,31 @@ public class GradeMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_GradeFiveLabelMousePressed
 
     private void GradeSixLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GradeSixLabelMousePressed
-        GradeSixMechanics GSM = new GradeSixMechanics();
-        GSM.setLocationRelativeTo(null);
-        GSM.setResizable(false);
-        GSM.setVisible(true);
-        dispose();
+        String database = "src\\Database\\currentprogress.txt";
+        ArrayList<String> data = new ArrayList<String>();
+        Progress progress = new Progress();
+        data = progress.ReadProgressDBComponents(database);
+        boolean verified = false;
+        for(int i = 1; i <= 8 ; i++){
+            if(data.get(i).substring(data.get(i).indexOf(" ") + 1, data.get(i).length()).equals("true")){
+                verified = true;
+            }
+            else{
+                verified = false;
+                break;
+            }
+        }
+        
+        if(!verified){
+            JOptionPane.showMessageDialog(null, "LEVEL 4 AND LEVEL 5 MUST BE COMPLETED FIRST.");
+        }
+        else{
+            GradeSixMechanics GSM = new GradeSixMechanics();
+            GSM.setLocationRelativeTo(null);
+            GSM.setResizable(false);
+            GSM.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_GradeSixLabelMousePressed
 
     private void BackButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackButtonMousePressed
@@ -135,29 +164,70 @@ public class GradeMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButtonMouseExited
 
     private void GradeFourLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GradeFourLabelMouseEntered
-        GradeFourLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefourhover.png")));
+        if(gradefour)
+            GradeFourLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefourcompletehover.png")));
+        else
+            GradeFourLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefourhover.png")));
     }//GEN-LAST:event_GradeFourLabelMouseEntered
 
     private void GradeFourLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GradeFourLabelMouseExited
-        GradeFourLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefour.png")));
+        if(gradefour)
+            GradeFourLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefourcomplete.png")));
+        else
+            GradeFourLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefour.png")));
     }//GEN-LAST:event_GradeFourLabelMouseExited
 
     private void GradeFiveLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GradeFiveLabelMouseEntered
-        GradeFiveLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefivehover.png")));
+        if(gradefive)
+            GradeFiveLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefivecompletehover.png")));
+        else
+            GradeFiveLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefivehover.png")));
     }//GEN-LAST:event_GradeFiveLabelMouseEntered
 
     private void GradeFiveLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GradeFiveLabelMouseExited
-        GradeFiveLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefive.png")));
+        if(gradefive)
+            GradeFiveLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefivecomplete.png")));
+        else
+            GradeFiveLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefive.png")));
     }//GEN-LAST:event_GradeFiveLabelMouseExited
 
     private void GradeSixLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GradeSixLabelMouseEntered
-        GradeSixLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradesixhover.png")));
+        if(gradesix)
+            GradeSixLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradesixcompletehover.png")));
+        else
+            GradeSixLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradesixhover.png")));
     }//GEN-LAST:event_GradeSixLabelMouseEntered
 
     private void GradeSixLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GradeSixLabelMouseExited
-        GradeSixLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradesix.png")));
+        if(gradesix)
+            GradeSixLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradesixcomplete.png")));
+        else
+            GradeSixLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradesix.png")));
     }//GEN-LAST:event_GradeSixLabelMouseExited
 
+    private void CheckIfDone(){
+        data = progress.ReadProgressDBComponents(database);
+        
+        if(data.get(1).substring(data.get(1).indexOf(' ') + 1, data.get(1).length()).equals("true") &&
+           data.get(2).substring(data.get(2).indexOf(' ') + 1, data.get(2).length()).equals("true") &&
+           data.get(3).substring(data.get(3).indexOf(' ') + 1, data.get(3).length()).equals("true") &&
+           data.get(4).substring(data.get(4).indexOf(' ') + 1, data.get(4).length()).equals("true")){
+            gradefour = true;
+            GradeFourLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefourcomplete.png")));
+        }
+        if(data.get(5).substring(data.get(5).indexOf(' ') + 1, data.get(5).length()).equals("true") &&
+           data.get(6).substring(data.get(6).indexOf(' ') + 1, data.get(6).length()).equals("true") &&
+           data.get(7).substring(data.get(7).indexOf(' ') + 1, data.get(7).length()).equals("true") &&
+           data.get(8).substring(data.get(8).indexOf(' ') + 1, data.get(8).length()).equals("true")){
+            gradefive = true;
+            GradeFiveLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefivecomplete.png")));
+        }
+        if(data.get(9).substring(data.get(9).indexOf(' ') + 1, data.get(9).length()).equals("true")){
+            gradesix = true;
+            GradeSixLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradesixcomplete.png")));
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
