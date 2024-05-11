@@ -1,9 +1,11 @@
 package Grade6;
 
 import javax.swing.ImageIcon;
+import sfx.SoundEffects;
 
 public class GradeSixProceed extends javax.swing.JFrame {
 
+    SoundEffects sfx = new SoundEffects();
     public GradeSixProceed() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -49,6 +51,7 @@ public class GradeSixProceed extends javax.swing.JFrame {
     }//GEN-LAST:event_StartButtonMouseExited
 
     private void StartButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartButtonMousePressed
+        sfx.ClickFX();
         GradeSixGuess gsg = new GradeSixGuess();
         gsg.setLocationRelativeTo(null);
         gsg.setResizable(false);

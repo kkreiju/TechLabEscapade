@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.io.*;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
+import sfx.SoundEffects;
 
     public class LevelOneGuess extends javax.swing.JFrame {
     private Timer timerLOD;
@@ -21,6 +22,7 @@ import javax.swing.Timer;
     int heartindex = 3;
     LevelOneDevice lod = new LevelOneDevice();
     
+    SoundEffects sfx = new SoundEffects();
     Progress progress = new Progress();
     public String saved = "src\\Database\\savedprogress.txt";
     public ArrayList<String> saveddata = new ArrayList<String>();
@@ -214,9 +216,11 @@ import javax.swing.Timer;
         //get textfield
         String answer = AnswerTextfield.getText().toLowerCase();
         if(worddata.get(index).toLowerCase().equals(answer)){
+            sfx.CorrectFX();
             stopTimer();
         }
         else{
+            sfx.IncorrectFX();
             stopTimer();
             LifeStatus(heartindex);
             this.heartindex--;

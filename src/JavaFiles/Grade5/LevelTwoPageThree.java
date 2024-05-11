@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
+import sfx.SoundEffects;
 
 /**
  *
@@ -20,6 +21,7 @@ public class LevelTwoPageThree extends javax.swing.JFrame {
     private int timeleft = 3;
     
     LevelTwoPageThreeAnswer ltpta = new LevelTwoPageThreeAnswer();
+    SoundEffects sfx = new SoundEffects();
     public LevelTwoPageThree() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -99,6 +101,7 @@ public class LevelTwoPageThree extends javax.swing.JFrame {
     }//GEN-LAST:event_ThumbsUpMouseExited
 
     private void ThumbsUpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThumbsUpMousePressed
+        sfx.CorrectFX();
         String database = "src\\Database\\5.2database.txt";
         Progress progress = new Progress();
         ArrayList<String> data = new ArrayList<String>();
@@ -116,6 +119,7 @@ public class LevelTwoPageThree extends javax.swing.JFrame {
     }//GEN-LAST:event_ThumbsUpMousePressed
 
     private void ThumbsDownMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThumbsDownMousePressed
+        sfx.IncorrectFX();
         ltpta.setLocationRelativeTo(null);
         ltpta.setResizable(false);
         ltpta.setVisible(true);

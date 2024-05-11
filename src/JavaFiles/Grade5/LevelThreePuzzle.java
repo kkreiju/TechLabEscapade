@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import sfx.SoundEffects;
 
 public class LevelThreePuzzle extends javax.swing.JFrame {
 
@@ -15,6 +16,7 @@ public class LevelThreePuzzle extends javax.swing.JFrame {
     private Timer timer;
     private int timeleft = 3;
     LevelThreeDisplayExcel ltde = new LevelThreeDisplayExcel();
+    SoundEffects sfx = new SoundEffects();
     
     public LevelThreePuzzle() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
@@ -46,6 +48,7 @@ public class LevelThreePuzzle extends javax.swing.JFrame {
     }
     
     private void ExcelPuzzlePictures(int clickedgrid, int imagesindex, int selectedindex){
+        sfx.ClickFX();
         if(!clicked){
             clicked = true;
             if(imagesindex == 0)
@@ -88,6 +91,7 @@ public class LevelThreePuzzle extends javax.swing.JFrame {
         else
             correct = false;
         if(correct){
+            sfx.CorrectFX();
             JOptionPane.showMessageDialog(null, "PUZZLE DONE!");
             ltde.setLocationRelativeTo(null);
             ltde.setResizable(false);

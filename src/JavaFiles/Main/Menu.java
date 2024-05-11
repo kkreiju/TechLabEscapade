@@ -4,9 +4,11 @@ import javax.swing.ImageIcon;
 import java.io.*;
 import java.util.*;
 import javax.swing.JOptionPane;
+import sfx.SoundEffects;
 
 public class Menu extends javax.swing.JFrame {
 
+    SoundEffects sfx = new SoundEffects();
     Progress progress = new Progress();
     public String saved = "src\\Database\\savedprogress.txt";
     public ArrayList<String> saveddata = new ArrayList<String>();
@@ -47,7 +49,7 @@ public class Menu extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 640, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-500, 640, -1, -1));
 
         jButton2.setText("saved arraylist");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -55,7 +57,7 @@ public class Menu extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 600, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-500, 600, -1, -1));
 
         jButton3.setText("reset all to false");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -63,7 +65,7 @@ public class Menu extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 690, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-500, 690, -1, -1));
 
         jButton4.setText("set 4 5 to true");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +73,7 @@ public class Menu extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 740, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-500, 740, -1, -1));
 
         ExitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exitbutton.png"))); // NOI18N
         ExitButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -141,6 +143,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_SaveButtonMouseExited
 
     private void PlayButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlayButtonMousePressed
+        sfx.ClickFX();
         GradeMenu gm = new GradeMenu();
         gm.setLocationRelativeTo(null);
         gm.setResizable(false);
@@ -149,6 +152,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_PlayButtonMousePressed
 
     private void ExitButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitButtonMousePressed
+        sfx.ClickFX();
         System.exit(0);
     }//GEN-LAST:event_ExitButtonMousePressed
 
@@ -161,12 +165,13 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_ExitButtonMouseExited
 
     private void SaveButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SaveButtonMousePressed
+        sfx.ClickFX();
         try{
             SaveCurrentProgress();
             JOptionPane.showMessageDialog(null, "Saved.");
         }
         catch(Exception e){
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Unable to save.");
         }
         
     }//GEN-LAST:event_SaveButtonMousePressed

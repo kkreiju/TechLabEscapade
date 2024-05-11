@@ -6,9 +6,11 @@ import Grade6.GradeSixMechanics;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import sfx.SoundEffects;
 
 public class GradeMenu extends javax.swing.JFrame {
 
+    SoundEffects sfx = new SoundEffects();
     Progress progress = new Progress();
     ArrayList<String> data = new ArrayList<String>();
     String database = "src\\Database\\currentprogress.txt";
@@ -104,6 +106,7 @@ public class GradeMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void GradeFourLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GradeFourLabelMousePressed
+        sfx.FolderFX();
         GradeFourMenu GFourM = new GradeFourMenu();
         GFourM.setLocationRelativeTo(null);
         GFourM.setResizable(false);
@@ -112,6 +115,7 @@ public class GradeMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_GradeFourLabelMousePressed
 
     private void GradeFiveLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GradeFiveLabelMousePressed
+        sfx.FolderFX();
         GradeFiveMenu GFiveM = new GradeFiveMenu();
         GFiveM.setLocationRelativeTo(null);
         GFiveM.setResizable(false);
@@ -120,6 +124,7 @@ public class GradeMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_GradeFiveLabelMousePressed
 
     private void GradeSixLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GradeSixLabelMousePressed
+        
         String database = "src\\Database\\currentprogress.txt";
         ArrayList<String> data = new ArrayList<String>();
         Progress progress = new Progress();
@@ -136,9 +141,11 @@ public class GradeMenu extends javax.swing.JFrame {
         }
         
         if(!verified){
+            sfx.IncorrectFX();
             JOptionPane.showMessageDialog(null, "LEVEL 4 AND LEVEL 5 MUST BE COMPLETED FIRST.");
         }
         else{
+            sfx.FolderFX();
             GradeSixMechanics GSM = new GradeSixMechanics();
             GSM.setLocationRelativeTo(null);
             GSM.setResizable(false);
@@ -148,6 +155,7 @@ public class GradeMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_GradeSixLabelMousePressed
 
     private void BackButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackButtonMousePressed
+        sfx.ClickFX();
         Menu m = new Menu();
         m.setLocationRelativeTo(null);
         m.setResizable(false);

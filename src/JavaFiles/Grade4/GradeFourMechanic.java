@@ -5,6 +5,7 @@
 package Grade4;
 
 import javax.swing.ImageIcon;
+import sfx.SoundEffects;
 
 /**
  *
@@ -15,6 +16,7 @@ public class GradeFourMechanic extends javax.swing.JFrame {
     /**
      * Creates new form GradeFourMechanic
      */
+    SoundEffects sfx = new SoundEffects();
     public GradeFourMechanic() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -66,6 +68,7 @@ public class GradeFourMechanic extends javax.swing.JFrame {
     }//GEN-LAST:event_NextButtonMouseExited
 
     private void NextButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMousePressed
+        sfx.ClickFX();
         LevelFourProceed lfp = new LevelFourProceed();
         lfp.setLocationRelativeTo(null);
         lfp.setResizable(false);

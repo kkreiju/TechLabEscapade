@@ -5,6 +5,7 @@
 package Grade4;
 
 import javax.swing.ImageIcon;
+import sfx.SoundEffects;
 
 /**
  *
@@ -15,6 +16,7 @@ public class LevelThreeMechanics extends javax.swing.JFrame {
     /**
      * Creates new form LevelThreeMechanics
      */
+    SoundEffects sfx = new SoundEffects();
     public LevelThreeMechanics() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -66,7 +68,8 @@ public class LevelThreeMechanics extends javax.swing.JFrame {
     }//GEN-LAST:event_NextButtonMouseExited
 
     private void NextButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMousePressed
-        LevelThreePuzzle hi = new LevelThreePuzzle();
+        sfx.ClickFX();
+        LevelThreeProceed hi = new LevelThreeProceed();
         hi.setLocationRelativeTo(null);
         hi.setResizable(false);
         hi.setVisible(true);

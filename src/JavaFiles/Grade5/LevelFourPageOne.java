@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import sfx.SoundEffects;
 
 
 
@@ -23,6 +24,7 @@ public class LevelFourPageOne extends javax.swing.JFrame {
     private int timeleft = 4;
     
     LevelFourPageOneDesc lfpod = new LevelFourPageOneDesc();
+    SoundEffects sfx = new SoundEffects();
     public LevelFourPageOne() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -90,6 +92,7 @@ public class LevelFourPageOne extends javax.swing.JFrame {
     }//GEN-LAST:event_FirstPicPageOneMouseExited
 
     private void FirstPicPageOneMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FirstPicPageOneMousePressed
+        sfx.CorrectFX();
         FirstPicPageOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1stpage1pcheck.png")));
         JOptionPane.showMessageDialog(null, "CORRECT");
         
@@ -115,6 +118,7 @@ public class LevelFourPageOne extends javax.swing.JFrame {
     }//GEN-LAST:event_SecondPicPageOneMouseExited
 
     private void SecondPicPageOneMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SecondPicPageOneMousePressed
+        sfx.IncorrectFX();
         SecondPicPageOne.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1stpage2pwrong.png")));
         JOptionPane.showMessageDialog(null, "INCORRECT");
         NextPage();

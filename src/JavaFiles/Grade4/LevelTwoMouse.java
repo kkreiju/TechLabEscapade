@@ -1,10 +1,13 @@
 package Grade4;
 
 import javax.swing.ImageIcon;
+import sfx.SoundEffects;
 
 public class LevelTwoMouse extends javax.swing.JFrame {
 
     boolean isPressed = false;
+    int i = 0;
+    SoundEffects sfx = new SoundEffects();
     public LevelTwoMouse() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -96,14 +99,20 @@ public class LevelTwoMouse extends javax.swing.JFrame {
     }//GEN-LAST:event_MouseRightUnhoveredMouseExited
 
     private void MouseLeftUnhoveredMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MouseLeftUnhoveredMousePressed
+        i = 0;
         NextButtonMousePressed(evt);
+        if(!isPressed)
+           sfx.IncorrectFX();
         isPressed = true;
         MouseLeftUnhovered.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseLeftWrong.png")));
         MouseRightUnhovered.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseRightCheck.png")));
     }//GEN-LAST:event_MouseLeftUnhoveredMousePressed
 
     private void MouseRightUnhoveredMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MouseRightUnhoveredMousePressed
+        i = 0;
         NextButtonMousePressed(evt);
+        if(!isPressed)
+           sfx.CorrectFX();
         isPressed = true;
         MouseLeftUnhovered.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseLeftWrong.png")));
         MouseRightUnhovered.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseRightCheck.png")));       
@@ -111,16 +120,19 @@ public class LevelTwoMouse extends javax.swing.JFrame {
 
     private void NextButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMouseEntered
         NextButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nextbuttonhover.png")));
+        i = 1;
     }//GEN-LAST:event_NextButtonMouseEntered
 
     private void NextButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMouseExited
         NextButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nextbutton.png")));
+        i = 1;
     }//GEN-LAST:event_NextButtonMouseExited
 
     private void NextButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMousePressed
         if(!isPressed)
             NextButton.setLocation(1408, 749);
-        else{
+        else if(i == 1){
+            sfx.ClickFX();
             LevelTwoMouseDrag LTMD = new LevelTwoMouseDrag();
             LTMD.setLocationRelativeTo(null);
             LTMD.setResizable(false);

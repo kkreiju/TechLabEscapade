@@ -6,9 +6,11 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import sfx.SoundEffects;
 
 public class LevelTwoTypeName extends javax.swing.JFrame {
 
+    SoundEffects sfx = new SoundEffects();
     public LevelTwoTypeName() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -52,6 +54,7 @@ public class LevelTwoTypeName extends javax.swing.JFrame {
 
     private void AnswerTextfieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AnswerTextfieldKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER && !AnswerTextfield.getText().isEmpty()) {
+            sfx.ClickFX();
             String database = "src\\Database\\4.2database.txt";
             Progress progress = new Progress();
             ArrayList<String> data = new ArrayList<String>();
@@ -71,11 +74,24 @@ public class LevelTwoTypeName extends javax.swing.JFrame {
     }//GEN-LAST:event_AnswerTextfieldKeyPressed
 
     private void EnterButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EnterButtonMousePressed
-       LevelTwoRoom LTR = new LevelTwoRoom();
-        LTR.setLocationRelativeTo(null);
-        LTR.setResizable(false);
-        LTR.setVisible(true);
-        dispose();
+       if (!AnswerTextfield.getText().isEmpty()) {
+           sfx.ClickFX(); 
+           String database = "src\\Database\\4.2database.txt";
+            Progress progress = new Progress();
+            ArrayList<String> data = new ArrayList<String>();
+            data = progress.ReadProgressDBComponents(database);
+            data.set(0, "true");
+            progress.SaveProgressDBComponents(data, database);
+            
+            LevelTwoRoom LTR = new LevelTwoRoom();
+            LTR.setLocationRelativeTo(null);
+            LTR.setResizable(false);
+            LTR.setVisible(true);
+            dispose();
+        }
+        else if(AnswerTextfield.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "PLEASE ENTER YOUR NAME");
+        }
     }//GEN-LAST:event_EnterButtonMousePressed
 
     public static void main(String args[]) {

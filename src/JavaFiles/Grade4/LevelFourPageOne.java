@@ -8,6 +8,7 @@ import Main.Progress;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import sfx.SoundEffects;
 
 /**
  *
@@ -18,6 +19,7 @@ public class LevelFourPageOne extends javax.swing.JFrame {
     /**
      * Creates new form LevelFourPageOne
      */
+    SoundEffects sfx = new SoundEffects();
     public LevelFourPageOne() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -83,6 +85,7 @@ public class LevelFourPageOne extends javax.swing.JFrame {
     }//GEN-LAST:event_FirstPicMouseExited
 
     private void FirstPicMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FirstPicMousePressed
+        sfx.IncorrectFX();
         FirstPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/44pageone1pwrong.png")));
         JOptionPane.showMessageDialog(null, "Incorrect!");
         LevelFourPageTwo lfpt = new LevelFourPageTwo();
@@ -101,6 +104,7 @@ public class LevelFourPageOne extends javax.swing.JFrame {
     }//GEN-LAST:event_SecondPicMouseExited
 
     private void SecondPicMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SecondPicMousePressed
+        sfx.CorrectFX();
         SecondPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/44pageone2pcheck.png")));
         JOptionPane.showMessageDialog(null, "Correct!");
         

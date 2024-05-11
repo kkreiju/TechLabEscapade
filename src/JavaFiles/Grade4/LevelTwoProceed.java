@@ -1,9 +1,11 @@
 package Grade4;
 
 import javax.swing.ImageIcon;
+import sfx.SoundEffects;
 
 public class LevelTwoProceed extends javax.swing.JFrame {
 
+    SoundEffects sfx = new SoundEffects();
     public LevelTwoProceed() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -54,6 +56,7 @@ public class LevelTwoProceed extends javax.swing.JFrame {
     }//GEN-LAST:event_StartButtonMouseExited
 
     private void StartButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartButtonMousePressed
+        sfx.ClickFX();
         LevelTwoRoom ltr = new LevelTwoRoom();
         ltr.setLocationRelativeTo(null);
         ltr.setResizable(false);

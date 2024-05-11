@@ -5,6 +5,7 @@ import Main.GradeMenu;
 import Main.Progress;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import sfx.SoundEffects;
 
 public class GradeFiveMenu extends javax.swing.JFrame {
 
@@ -12,6 +13,7 @@ public class GradeFiveMenu extends javax.swing.JFrame {
     ArrayList<String> data = new ArrayList<String>();
     String database = "src\\Database\\currentprogress.txt";
     
+    SoundEffects sfx = new SoundEffects();
     public GradeFiveMenu() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -119,6 +121,7 @@ public class GradeFiveMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButtonMouseExited
 
     private void BackButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackButtonMousePressed
+        sfx.ClickFX();
         GradeMenu GM = new GradeMenu();
         GM.setLocationRelativeTo(null);
         GM.setResizable(false);
@@ -127,7 +130,8 @@ public class GradeFiveMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButtonMousePressed
 
     private void Grade5LevelOneMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Grade5LevelOneMousePressed
-       LevelOneMech LOM = new LevelOneMech();
+       sfx.ClickFX();
+        LevelOneMech LOM = new LevelOneMech();
         LOM.setLocationRelativeTo(null);
         LOM.setResizable(false);
         LOM.setVisible(true);
@@ -215,6 +219,7 @@ public class GradeFiveMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_Grade5LevelFourMouseExited
 
     private void Grade5LevelThreeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Grade5LevelThreeMousePressed
+        sfx.ClickFX();
         LevelThreeMechanics ltm = new LevelThreeMechanics();
         ltm.setLocationRelativeTo(null);
         ltm.setResizable(false);
@@ -223,6 +228,7 @@ public class GradeFiveMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_Grade5LevelThreeMousePressed
 
     private void Grade5LevelTwoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Grade5LevelTwoMousePressed
+        sfx.ClickFX();
         LevelTwoMechanics ltm = new LevelTwoMechanics();
         ltm.setLocationRelativeTo(null);
         ltm.setResizable(false);
@@ -231,6 +237,7 @@ public class GradeFiveMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_Grade5LevelTwoMousePressed
 
     private void Grade5LevelFourMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Grade5LevelFourMousePressed
+        sfx.ClickFX();
         LevelFourMechanics lfm = new LevelFourMechanics();
         lfm.setLocationRelativeTo(null);
         lfm.setResizable(false);

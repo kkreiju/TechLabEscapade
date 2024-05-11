@@ -4,9 +4,11 @@ import Main.Progress;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import sfx.SoundEffects;
 
 public class GradeFourMenu extends javax.swing.JFrame {
 
+    SoundEffects sfx = new SoundEffects();
     Progress progress = new Progress();
     ArrayList<String> data = new ArrayList<String>();
     String database = "src\\Database\\currentprogress.txt";
@@ -114,6 +116,7 @@ public class GradeFourMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackButtonMousePressed
+        sfx.ClickFX();
         GradeMenu gm = new GradeMenu();
         gm.setLocationRelativeTo(null);
         gm.setResizable(false);
@@ -149,6 +152,7 @@ public class GradeFourMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_Level1MouseExited
 
     private void Level1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level1MousePressed
+        sfx.ClickFX();
         LevelOneMechanics lom = new LevelOneMechanics();
         lom.setLocationRelativeTo(null);
         lom.setResizable(false);
@@ -177,6 +181,7 @@ public class GradeFourMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_Level2MouseExited
 
     private void Level2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level2MousePressed
+        sfx.ClickFX();
         LevelTwoMechanics ltm = new LevelTwoMechanics();
         ltm.setLocationRelativeTo(null);
         ltm.setResizable(false);
@@ -205,6 +210,7 @@ public class GradeFourMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_Level3MouseExited
 
     private void Level3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level3MousePressed
+        sfx.ClickFX();
         LevelThreeMechanics sheesh = new LevelThreeMechanics();
         sheesh.setLocationRelativeTo(null);
         sheesh.setResizable(false);
@@ -233,6 +239,7 @@ public class GradeFourMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_Level4MouseExited
 
     private void Level4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Level4MousePressed
+        sfx.ClickFX();
         GradeFourMechanic gfm = new GradeFourMechanic();
         gfm.setLocationRelativeTo(null);
         gfm.setResizable(false);

@@ -3,9 +3,11 @@ package Grade5;
 
 import Grade5.LevelOneProceed;
 import javax.swing.ImageIcon;
+import sfx.SoundEffects;
 
 public class LevelOneMech extends javax.swing.JFrame {
 
+    SoundEffects sfx = new SoundEffects();
     public LevelOneMech() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -51,6 +53,7 @@ public class LevelOneMech extends javax.swing.JFrame {
     }//GEN-LAST:event_NextButtonMouseExited
 
     private void NextButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMousePressed
+        sfx.ClickFX();
         LevelOneProceed GFV = new LevelOneProceed();
         GFV.setLocationRelativeTo(null);
         GFV.setResizable(false);

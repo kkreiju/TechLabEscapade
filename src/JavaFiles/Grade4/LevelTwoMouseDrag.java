@@ -3,10 +3,13 @@ package Grade4;
 import Main.Progress;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import sfx.SoundEffects;
 
 public class LevelTwoMouseDrag extends javax.swing.JFrame {
 
     boolean isPressed = false;
+    SoundEffects sfx = new SoundEffects();
+    int i = 0;
     public LevelTwoMouseDrag() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -74,7 +77,10 @@ public class LevelTwoMouseDrag extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MouseLeftMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MouseLeftMousePressed
-       NextButtonMousePressed(evt);
+       i = 0;
+        NextButtonMousePressed(evt);
+        if(!isPressed)
+           sfx.CorrectFX();
        isPressed = true;
        MouseLeft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseLeftCheck.png")));
        MouseRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseRightWrong.png")));
@@ -91,7 +97,10 @@ public class LevelTwoMouseDrag extends javax.swing.JFrame {
     }//GEN-LAST:event_MouseLeftMouseExited
 
     private void MouseRightMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MouseRightMousePressed
+        i = 0;
         NextButtonMousePressed(evt);
+        if(!isPressed)
+           sfx.IncorrectFX();
         isPressed = true;
         MouseLeft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseLeftCheck.png")));
         MouseRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MouseRightWrong.png")));
@@ -108,17 +117,20 @@ public class LevelTwoMouseDrag extends javax.swing.JFrame {
     }//GEN-LAST:event_MouseRightMouseExited
 
     private void NextButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMouseEntered
+        i = 1;
         NextButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nextbuttonhover.png")));
     }//GEN-LAST:event_NextButtonMouseEntered
 
     private void NextButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMouseExited
+        i = 1;
         NextButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/nextbutton.png")));
     }//GEN-LAST:event_NextButtonMouseExited
 
     private void NextButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMousePressed
         if(!isPressed)
             NextButton.setLocation(1408, 749);
-        else{
+        else if(i == 1){
+            sfx.ClickFX();
             String database = "src\\Database\\4.2database.txt";
             Progress progress = new Progress();
             ArrayList<String> data = new ArrayList<String>();

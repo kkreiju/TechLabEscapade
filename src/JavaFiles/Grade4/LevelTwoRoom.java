@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import sfx.SoundEffects;
 
 public class LevelTwoRoom extends javax.swing.JFrame {
 
@@ -15,6 +16,7 @@ public class LevelTwoRoom extends javax.swing.JFrame {
     private int timeleft = 3;
     private int index = 1;
     LevelTwoDisplay ltd = new LevelTwoDisplay();
+    SoundEffects sfx = new SoundEffects();
     
     String database = "src\\Database\\4.2database.txt";
     Progress progress = new Progress();
@@ -176,6 +178,7 @@ public class LevelTwoRoom extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButtonMouseExited
 
     private void BackButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackButtonMousePressed
+        sfx.ClickFX();
         data = progress.ReadProgressDBComponents(database);
         if(!complete){
             for(int i = 0 ; i < data.size(); i++){
@@ -191,10 +194,12 @@ public class LevelTwoRoom extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButtonMousePressed
 
     private void MouseLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MouseLabelMousePressed
+        sfx.ClickFX();
         DisplayMouse();
     }//GEN-LAST:event_MouseLabelMousePressed
 
     private void KeyboardLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KeyboardLabelMousePressed
+        sfx.KeyboardFX();
         LevelTwoKeyboardOne KBO = new LevelTwoKeyboardOne();
         KBO.setLocationRelativeTo(null);
         KBO.setResizable(false);
@@ -203,6 +208,7 @@ public class LevelTwoRoom extends javax.swing.JFrame {
     }//GEN-LAST:event_KeyboardLabelMousePressed
 
     private void CPULabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CPULabelMousePressed
+        sfx.CPUFX();
         DisplayCPU();
         data = progress.ReadProgressDBComponents(database);
         data.set(1, "true");
@@ -212,6 +218,7 @@ public class LevelTwoRoom extends javax.swing.JFrame {
     }//GEN-LAST:event_CPULabelMousePressed
 
     private void MonitorLabelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MonitorLabelMousePressed
+        sfx.MonitorFX();
         DisplayMonitor();
         data = progress.ReadProgressDBComponents(database);
         data.set(2, "true");

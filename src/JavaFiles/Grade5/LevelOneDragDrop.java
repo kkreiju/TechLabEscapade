@@ -7,6 +7,7 @@ package Grade5;
 import java.awt.Point;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import sfx.SoundEffects;
 
 /**
  *
@@ -24,6 +25,7 @@ public class LevelOneDragDrop extends javax.swing.JFrame {
     Point pdf3Position = null;
     boolean isFinished = false;
     
+    SoundEffects sfx = new SoundEffects();
     public LevelOneDragDrop() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);setUndecorated(true);
@@ -638,10 +640,12 @@ public class LevelOneDragDrop extends javax.swing.JFrame {
     
    
     private void Check(){
-    if(Pdf1.equals(FolderThree) && Pdf2.equals(FolderThree) && Pdf3.equals(FolderThree)
+    sfx.FolderFX();
+        if(Pdf1.equals(FolderThree) && Pdf2.equals(FolderThree) && Pdf3.equals(FolderThree)
             && Ms1.equals(FolderTwo) && Ms2.equals(FolderTwo) && Ms3.equals(FolderTwo)
                 && Excel1.equals(FolderOne) && Excel2.equals(FolderOne) && Excel3.equals(FolderOne)){
-    NextButton.setVisible(true);
+            sfx.CorrectFX();
+            NextButton.setVisible(true);
     
     }
     

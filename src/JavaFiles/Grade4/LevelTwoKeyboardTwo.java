@@ -1,9 +1,11 @@
 package Grade4;
 
 import javax.swing.ImageIcon;
+import sfx.SoundEffects;
 
 public class LevelTwoKeyboardTwo extends javax.swing.JFrame {
 
+    SoundEffects sfx = new SoundEffects();
     public LevelTwoKeyboardTwo() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -49,6 +51,7 @@ public class LevelTwoKeyboardTwo extends javax.swing.JFrame {
     }//GEN-LAST:event_NextButtonMouseExited
 
     private void NextButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMousePressed
+        sfx.ClickFX();
         LevelTwoTypeName LTTN = new LevelTwoTypeName();
         LTTN.setLocationRelativeTo(null);
         LTTN.setResizable(false);

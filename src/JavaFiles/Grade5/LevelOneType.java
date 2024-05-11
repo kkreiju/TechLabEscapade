@@ -4,12 +4,12 @@
  */
 package Grade5;
 
-import Grade4.LevelTwoRoom;
 import Main.Progress;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import sfx.SoundEffects;
 
 /**
  *
@@ -20,6 +20,7 @@ public class LevelOneType extends javax.swing.JFrame {
     /**
      * Creates new form LevelOneType
      */
+    SoundEffects sfx = new SoundEffects();
     public LevelOneType() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -96,6 +97,7 @@ public class LevelOneType extends javax.swing.JFrame {
         String answerPDF = PdfText.getText().trim().toUpperCase();
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if(answerMS.equals("WORD") && answerXL.equals("EXCEL") && answerPDF.equals("PDF")){
+                sfx.CorrectFX();
                 String database = "src\\Database\\currentprogress.txt";
                 Progress progress = new Progress();
                 ArrayList<String> data = new ArrayList<String>();
@@ -111,10 +113,12 @@ public class LevelOneType extends javax.swing.JFrame {
                 dispose();
             }
             else if(answerMS.isEmpty() || answerXL.isEmpty() || answerPDF.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Fill in the Blanks");
+                sfx.IncorrectFX();
+                JOptionPane.showMessageDialog(this, "Fill in the Blanks");
             }
             else if(!answerMS.equals("WORD") || !answerXL.equals("EXCEL") || !answerPDF.equals("PDF")){
-            JOptionPane.showMessageDialog(this, "Incorrect");
+                sfx.IncorrectFX();
+                JOptionPane.showMessageDialog(this, "Incorrect");
         }
         }
         
@@ -127,6 +131,7 @@ public class LevelOneType extends javax.swing.JFrame {
         String answerXL = ExcelText.getText().trim().toUpperCase();
         String answerPDF = PdfText.getText().trim().toUpperCase();
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            sfx.CorrectFX();
             if(answerMS.equals("WORD") && answerXL.equals("EXCEL") && answerPDF.equals("PDF")){
             String database = "src\\Database\\currentprogress.txt";
             Progress progress = new Progress();
@@ -143,10 +148,12 @@ public class LevelOneType extends javax.swing.JFrame {
             dispose();
             }
             else if(answerMS.isEmpty() || answerXL.isEmpty() || answerPDF.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Fill in the Blanks");
+                sfx.IncorrectFX();
+                JOptionPane.showMessageDialog(this, "Fill in the Blanks");
             }
             else if(!answerMS.equals("WORD") || !answerXL.equals("EXCEL") || !answerPDF.equals("PDF")){
-            JOptionPane.showMessageDialog(this, "Incorrect");
+                sfx.IncorrectFX();
+                JOptionPane.showMessageDialog(this, "Incorrect");
         }
             
         }
@@ -161,7 +168,8 @@ public class LevelOneType extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
            
         if(answerMS.equals("WORD") && answerXL.equals("EXCEL") && answerPDF.equals("PDF")){
-        String database = "src\\Database\\currentprogress.txt";
+            sfx.CorrectFX();
+            String database = "src\\Database\\currentprogress.txt";
         Progress progress = new Progress();
         ArrayList<String> data = new ArrayList<String>();
         data = progress.ReadProgressDBComponents(database);
@@ -176,9 +184,11 @@ public class LevelOneType extends javax.swing.JFrame {
         dispose();
         }
         else if(answerMS.isEmpty() || answerXL.isEmpty() || answerPDF.isEmpty()){
+            sfx.IncorrectFX();
             JOptionPane.showMessageDialog(this, "Fill in the Blanks");
             }
         else if(!answerMS.equals("WORD") || !answerXL.equals("EXCEL") || !answerPDF.equals("PDF")){
+            sfx.IncorrectFX();
             JOptionPane.showMessageDialog(this, "Incorrect");
         }
             

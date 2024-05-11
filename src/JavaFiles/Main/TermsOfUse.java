@@ -40,8 +40,9 @@ public class TermsOfUse extends javax.swing.JFrame {
         TermsScrollPane.setBackground(new java.awt.Color(255, 255, 255));
         TermsScrollPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        TermsOfUseLabel.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         TermsOfUseLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TermsOfUseLabel.setText("TERMS OF USE");
+        TermsOfUseLabel.setText("<html><div style='text-align: center; font-size: 20;'><b>TERMS AND POLICIES</b></div><br><br>\n\n<b>Welcome to TechLab Escapade!</b><br><br>\nBy accessing or using our game, you agree to be bound by these terms and policies.<br>\nPlease read them carefully.<br><br>\n\n<b>User Conduct:</b><br>\nBe respectful to other players.<br>\nDo not cheat, hack, or exploit bugs.<br>\nDo not engage in harassment or any form of abusive behavior.<br><br>\n\n<b>Privacy Policy:</b><br>\nWe collect limited personal information for gameplay purposes only.<br>\nYour data is not shared with third parties without consent.<br><br>\n\n<b>Age Restrictions:</b><br>\nYou must be at least 9 years old to play TechLab Escapade.<br>\nMinors should obtain parental consent.<br><br>\n\n<b>Contact Information:</b><br>\nIf you have any questions or concerns, please contact us at techlabescapade@gmail.com.<br>\nBy continuing to use TechLab Escapade, you agree to these terms and policies.<br><br><div style='text-align: center; font-size: 20;'><b>Thank you for playing!</b></html>");
         TermsOfUseLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         TermsScrollPane.setViewportView(TermsOfUseLabel);
 

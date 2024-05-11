@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import java.io.*;
 import javax.swing.JOptionPane;
+import sfx.SoundEffects;
 
 public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
 
@@ -11,6 +12,7 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
     ArrayList<String> data = new ArrayList<String>();
     boolean initialization = false;
     
+    SoundEffects sfx = new SoundEffects();
     public LevelThreeFillInTheBlanks() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -68,11 +70,13 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
     private void AnswerVerifier(int index){
         if(index == 1){
             if(textfield1.getText().equals("P") && textfield2.getText().equals("E") && textfield3.getText().equals("H")){
+                sfx.CorrectFX();
                 data.set(0, (index + 1) + "");
                 SaveDatabaseComponents();
                 JOptionPane.showMessageDialog(null, "CORRECT");
             }
             else{
+                sfx.IncorrectFX();
                 JOptionPane.showMessageDialog(null, "INCORRECT");
             }
         }
@@ -235,6 +239,7 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButtonMouseExited
 
     private void BackButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackButtonMousePressed
+        sfx.ClickFX();
         GradeFiveMenu gm = new GradeFiveMenu();
         gm.setLocationRelativeTo(null);
         gm.setResizable(false);

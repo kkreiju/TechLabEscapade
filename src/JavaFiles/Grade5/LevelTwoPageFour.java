@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.Timer;
+import sfx.SoundEffects;
 
 /**
  *
@@ -20,7 +21,8 @@ public class LevelTwoPageFour extends javax.swing.JFrame {
     private int timeleft = 3;
     
     LevelTwoAnswerPageFour ltapf = new LevelTwoAnswerPageFour();
-    
+    SoundEffects sfx = new SoundEffects();
+   
     public LevelTwoPageFour() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -100,6 +102,7 @@ public class LevelTwoPageFour extends javax.swing.JFrame {
     }//GEN-LAST:event_ThumbsUpMouseExited
 
     private void ThumbsDownMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThumbsDownMousePressed
+        sfx.IncorrectFX();
         ltapf.setLocationRelativeTo(null);
         ltapf.setResizable(false);
         ltapf.setVisible(true);
@@ -108,6 +111,7 @@ public class LevelTwoPageFour extends javax.swing.JFrame {
     }//GEN-LAST:event_ThumbsDownMousePressed
 
     private void ThumbsUpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThumbsUpMousePressed
+        sfx.CorrectFX();
         String database = "src\\Database\\5.2database.txt";
         Progress progress = new Progress();
         ArrayList<String> data = new ArrayList<String>();

@@ -9,6 +9,7 @@ import java.io.*;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import sfx.SoundEffects;
 
 public class GradeSixGuess extends javax.swing.JFrame {
 
@@ -19,6 +20,7 @@ public class GradeSixGuess extends javax.swing.JFrame {
     private boolean visible = false;
     GradeSixAnswer gsa = new GradeSixAnswer();
     int correct = 0;
+    SoundEffects sfx = new SoundEffects();
     
     public GradeSixGuess() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
@@ -180,10 +182,12 @@ public class GradeSixGuess extends javax.swing.JFrame {
     private void answer(String answer){
         int index = Integer.parseInt(data.get(0));
         if(answer.equals(data.get(index))){
+            sfx.CorrectFX();
             JOptionPane.showMessageDialog(null, "CORRECT");
             correct++;
         }
         else{
+            sfx.IncorrectFX();
             JOptionPane.showMessageDialog(null, "INCORRECT");
         }
         data.set(0, (index + 1) + "");

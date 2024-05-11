@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.io.*;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import sfx.SoundEffects;
 
 public class LevelTwoMechanics extends javax.swing.JFrame {
 
+    SoundEffects sfx = new SoundEffects();
     public LevelTwoMechanics() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -56,6 +58,7 @@ public class LevelTwoMechanics extends javax.swing.JFrame {
     }//GEN-LAST:event_NextButtonMouseExited
 
     private void NextButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NextButtonMousePressed
+        sfx.ClickFX();
         LevelTwoProceed lop = new LevelTwoProceed();
         lop.setLocationRelativeTo(null);
         lop.setResizable(false);

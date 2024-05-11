@@ -118,7 +118,7 @@
             <Component class="javax.swing.JLabel" name="TermsOfUseLabel">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="TERMS OF USE"/>
+                <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;div style=&apos;text-align: center;&apos;&gt;TERMS AND POLICIES&lt;/div&gt;&lt;br&gt;&lt;br&gt;&#xa;&#xa;Welcome to TechLab Escapade! By accessing or using our game, you agree to be bound by these terms and policies. Please read them carefully.&#xa;&#xa;User Conduct:&#xa;Be respectful to other players.&#xa;Do not cheat, hack, or exploit bugs.&#xa;Do not engage in harassment or any form of abusive behavior.&#xa;&#xa;Privacy Policy:&#xa;We collect limited personal information for gameplay purposes only.&#xa;Your data is not shared with third parties without consent.&#xa;&#xa;Age Restrictions:&#xa;You must be at least 9 years old to play TechLab Escapade.&#xa;Minors should obtain parental consent.&#xa;&#xa;Contact Information:&#xa;If you have any questions or concerns, please contact us at techlabescapade@gmail.com.&#xa;By continuing to use TechLab Escapade, you agree to these terms and policies. Thank you for playing!&lt;/html&gt;"/>
                 <Property name="verticalAlignment" type="int" value="1"/>
               </Properties>
             </Component>

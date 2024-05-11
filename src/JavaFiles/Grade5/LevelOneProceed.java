@@ -3,11 +3,12 @@ package Grade5;
 
 import Main.GradeMenu;
 import javax.swing.ImageIcon;
+import sfx.SoundEffects;
 
 
 public class LevelOneProceed extends javax.swing.JFrame {
 
-  
+    SoundEffects sfx = new SoundEffects();
     public LevelOneProceed() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -46,7 +47,8 @@ public class LevelOneProceed extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void StartButotnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartButotnMousePressed
-       LevelOneDragDrop GFV = new LevelOneDragDrop();
+        sfx.ClickFX();
+        LevelOneDragDrop GFV = new LevelOneDragDrop();
         GFV.setLocationRelativeTo(null);
         GFV.setResizable(false);
         GFV.setVisible(true);

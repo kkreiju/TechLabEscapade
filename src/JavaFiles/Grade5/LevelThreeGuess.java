@@ -4,12 +4,14 @@ import Main.Progress;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import sfx.SoundEffects;
 
 public class LevelThreeGuess extends javax.swing.JFrame {
 
     int[] answer = {2, 1, 1};
     int index = 0;
     int correct = 0;
+    SoundEffects sfx = new SoundEffects();
     public LevelThreeGuess() {
         this.setIconImage(new ImageIcon(getClass().getResource("/icon.png")).getImage());
         setUndecorated(true);
@@ -31,11 +33,14 @@ public class LevelThreeGuess extends javax.swing.JFrame {
         }
         
         if(choice == answer[index]){
+            sfx.CorrectFX();
             JOptionPane.showMessageDialog(null, "CORRECT");
             correct++;
         }
-        else
+        else{
+            sfx.IncorrectFX();
             JOptionPane.showMessageDialog(null, "INCORRECT");
+        }  
         index++;
         Refresh();
     }
@@ -189,6 +194,7 @@ public class LevelThreeGuess extends javax.swing.JFrame {
     }//GEN-LAST:event_BackButtonMouseExited
 
     private void BackButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackButtonMousePressed
+        sfx.ClickFX();
         GradeFiveMenu gm = new GradeFiveMenu();
         gm.setLocationRelativeTo(null);
         gm.setResizable(false);
