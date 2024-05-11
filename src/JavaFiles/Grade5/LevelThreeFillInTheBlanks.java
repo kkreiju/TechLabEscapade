@@ -32,14 +32,14 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
     
     public void TextFieldPositioner(){
         int index = Integer.parseInt(data.get(0));
-        int y = 730;
+        int y = 725;
         textfield1.setText(null);
         textfield2.setText(null);
         textfield3.setText(null);
         if(index == 1){
-            textfield1.setLocation(550, y);
+            textfield1.setLocation(560, y);
             textfield2.setLocation(660, y);
-            textfield3.setLocation(888, y);
+            textfield3.setLocation(870, y);
         }
         else if(index == 2){
             textfield1.setLocation(-60, y);
@@ -159,7 +159,7 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
                 textfield3KeyTyped(evt);
             }
         });
-        getContentPane().add(textfield3, new org.netbeans.lib.awtextra.AbsoluteConstraints(888, 720, 50, 50));
+        getContentPane().add(textfield3, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 720, 50, 50));
 
         textfield2.setFont(new java.awt.Font("Kozuka Gothic Pr6N H", 0, 48)); // NOI18N
         textfield2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -184,7 +184,7 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
                 textfield1KeyTyped(evt);
             }
         });
-        getContentPane().add(textfield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 720, 50, 50));
+        getContentPane().add(textfield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 727, 50, 50));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gradefive_threefillintheblanks1.png"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

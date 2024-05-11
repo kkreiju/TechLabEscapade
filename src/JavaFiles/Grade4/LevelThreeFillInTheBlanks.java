@@ -158,67 +158,79 @@ public class LevelThreeFillInTheBlanks extends javax.swing.JFrame {
         }
         else if(index == 2){
             if(textfield1.getText().equals("U") && textfield2.getText().equals("C") && textfield3.getText().equals("C") && textfield4.getText().equals("E") && textfield5.getText().equals("O") && textfield6.getText().equals("O")){
+                sfx.CorrectFX();
                 data.set(0, (index + 1) + "");
                 SaveDatabaseComponents();
                 JOptionPane.showMessageDialog(null, "CORRECT");
                 correct++;
             }
             else{
+                sfx.IncorrectFX();
                 JOptionPane.showMessageDialog(null, "INCORRECT");
             }
         }
         else if(index == 3){
             if(textfield1.getText().equals("O") && textfield2.getText().equals("U") && textfield3.getText().equals("M") && textfield4.getText().equals("N") && textfield5.getText().equals("I") && textfield6.getText().equals("L")){
+                sfx.CorrectFX();
                 data.set(0, (index + 1) + "");
                 SaveDatabaseComponents();
                 JOptionPane.showMessageDialog(null, "CORRECT");
                 correct++;
             }
             else{
+                sfx.IncorrectFX();
                 JOptionPane.showMessageDialog(null, "INCORRECT");
             }
         }
         else if(index == 4){
             if(textfield1.getText().equals("O") && textfield2.getText().equals("R") && textfield3.getText().equals("L") && textfield4.getText().equals("U") && textfield5.getText().equals("O") && textfield6.getText().equals("S")){
+                sfx.CorrectFX();
                 data.set(0, (index + 1) + "");
                 SaveDatabaseComponents();
                 JOptionPane.showMessageDialog(null, "CORRECT");
                 correct++;
             }
             else{
+                sfx.IncorrectFX();
                 JOptionPane.showMessageDialog(null, "INCORRECT");
             }
         }
         else if(index == 5){
             if(textfield1.getText().equals("I") && textfield2.getText().equals("O")){
+                sfx.CorrectFX();
                 data.set(0, (index + 1) + "");
                 SaveDatabaseComponents();
                 JOptionPane.showMessageDialog(null, "CORRECT");
                 correct++;
             }
             else{
+                sfx.IncorrectFX();
                 JOptionPane.showMessageDialog(null, "INCORRECT");
             }
         }
         else if(index == 6){
             if(textfield1.getText().equals("O") && textfield2.getText().equals("U") && textfield3.getText().equals("N") && textfield4.getText().equals("T")){
+                sfx.CorrectFX();
                 data.set(0, (index + 1) + "");
                 SaveDatabaseComponents();
                 JOptionPane.showMessageDialog(null, "CORRECT");
                 correct++;
             }
             else{
+                sfx.IncorrectFX();
                 JOptionPane.showMessageDialog(null, "INCORRECT");
             }
         }
         else if(index == 7){
             if(textfield1.getText().equals("T") && textfield2.getText().equals("U") && textfield3.getText().equals("A")){
+                sfx.CorrectFX();
                 data.set(0, (index + 1) + "");
                 SaveDatabaseComponents();
                 JOptionPane.showMessageDialog(null, "CORRECT");
                 correct++;
             }
             else{
+                sfx.IncorrectFX();
                 JOptionPane.showMessageDialog(null, "INCORRECT");
             }
         }
